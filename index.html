@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+<meta name="theme-color" content="#0A2E36">
+<title>أبو صلاح | عصائر وسلطات</title>
+<meta name="description" content="أبو صلاح - عصائر طازجة، سلطات فواكه، وافل، كريب - كفرسوسة، دمشق">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ THEME 1: LUXURY (الفخم المنعش) ============ */
+:root, [data-theme="luxury"]{
+  --bg:#0A2E36;--bg-2:#0E3A44;--bg-3:#134850;
+  --primary:#FF9800;--primary-2:#FFB74D;--primary-3:#E68A00;
+  --accent:#4DD0E1;--hot:#E91E63;
+  --text:#F5F0E1;--dim:#A8C5CC;--soft:#6B8A92;
+  --card-1:#0E3A44;--card-2:#134850;
+  --border:rgba(255,152,0,.2);
+  --border-strong:rgba(255,152,0,.4);
+  --glass:rgba(10,46,54,.6);
+  --hero-overlay-1:rgba(10,46,54,.4);
+  --hero-overlay-2:rgba(10,46,54,.85);
+  --shadow:0 10px 30px rgba(0,0,0,.4);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.6);
+}
+
+/* ============ THEME 2: CLEAN (المشرق النظيف) ============ */
+[data-theme="clean"]{
+  --bg:#FFFFFF;--bg-2:#F8F9FA;--bg-3:#EEF2F5;
+  --primary:#00BCD4;--primary-2:#26C6DA;--primary-3:#0097A7;
+  --accent:#FF9800;--hot:#E91E63;
+  --text:#1A2E36;--dim:#546E7A;--soft:#90A4AE;
+  --card-1:#FFFFFF;--card-2:#F8F9FA;
+  --border:rgba(0,188,212,.2);
+  --border-strong:rgba(0,188,212,.4);
+  --glass:rgba(255,255,255,.7);
+  --hero-overlay-1:rgba(0,0,0,.2);
+  --hero-overlay-2:rgba(0,0,0,.65);
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.15);
+}
+
+/* ============ THEME 3: SUMMER (الصيفي الحيوي) ============ */
+[data-theme="summer"]{
+  --bg:#FFF8E7;--bg-2:#FFF3D6;--bg-3:#FFE9B8;
+  --primary:#F57C00;--primary-2:#FF9800;--primary-3:#E65100;
+  --accent:#4DD0E1;--hot:#E91E63;
+  --text:#3E2723;--dim:#795548;--soft:#A1887F;
+  --card-1:#FFFFFF;--card-2:#FFF8E7;
+  --border:rgba(245,124,0,.25);
+  --border-strong:rgba(245,124,0,.5);
+  --glass:rgba(255,248,231,.75);
+  --hero-overlay-1:rgba(62,39,35,.3);
+  --hero-overlay-2:rgba(62,39,35,.75);
+  --shadow:0 10px 30px rgba(62,39,35,.12);
+  --shadow-lg:0 24px 60px rgba(62,39,35,.2);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .4s,color .4s}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--primary);color:#fff}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary-3),var(--primary));border-radius:4px}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all .4s}
+.header.scrolled{background:color-mix(in srgb,var(--bg) 97%,transparent);border-bottom-color:var(--border-strong);box-shadow:var(--shadow)}
+.header-inner{max-width:1300px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.logo{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 1px var(--border-strong),0 6px 20px rgba(255,152,0,.3);position:relative;flex-shrink:0}
+.logo svg{width:30px;height:30px}
+.logo::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--border-strong);animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.08);opacity:.3}}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--primary);line-height:1.1;letter-spacing:.5px}
+.brand-sub{font-size:10.5px;color:var(--dim);letter-spacing:1px;margin-top:2px}
+
+/* Animated Cart */
+.cart-btn{position:relative;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 28px rgba(255,152,0,.4),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .3s;animation:cartFloat 3s ease-in-out infinite;flex-shrink:0}
+.cart-btn:active{transform:scale(.92)}
+@keyframes cartFloat{0%,100%{box-shadow:0 8px 28px rgba(255,152,0,.4),inset 0 1px 0 rgba(255,255,255,.3)}50%{box-shadow:0 12px 36px rgba(255,152,0,.6),inset 0 1px 0 rgba(255,255,255,.3)}}
+.cart-btn::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--primary);opacity:0;animation:cartRing 2.5s ease-out infinite}
+@keyframes cartRing{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.4);opacity:0}}
+.cart-badge{position:absolute;top:-4px;left:-4px;background:var(--hot);color:#fff;font-size:12px;font-weight:900;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:0 6px;border:2px solid var(--bg);box-shadow:0 0 12px rgba(233,30,99,.6)}
+.cart-badge.hidden{display:none}
+.cart-badge.bump{animation:badgeBump .4s}
+@keyframes badgeBump{0%{transform:scale(1)}50%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+/* Hero */
+.hero{position:relative;min-height:440px;display:flex;align-items:center;justify-content:center;padding:40px 20px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-attachment:fixed;opacity:.55;transition:opacity .4s}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,var(--hero-overlay-1) 0%,var(--hero-overlay-2) 60%,var(--bg) 100%)}
+.hero-pattern{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,var(--primary) 1px,transparent 1px);background-size:30px 30px}
+.hero-glass{position:relative;z-index:2;max-width:680px;width:100%;background:var(--glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border-strong);border-radius:28px;padding:32px 28px;text-align:center;box-shadow:var(--shadow-lg)}
+.hero-glass::before,.hero-glass::after{content:"";position:absolute;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
+.hero-glass::before{top:0}
+.hero-glass::after{bottom:0}
+.hero-ornament{font-size:16px;color:var(--primary);opacity:.8;letter-spacing:10px;margin-bottom:8px}
+.hero-name{font-family:'Amiri',serif;font-size:48px;font-weight:700;margin-bottom:8px;line-height:1;letter-spacing:1.5px;background:linear-gradient(135deg,var(--primary-2),var(--primary),var(--primary-3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(255,152,0,.3))}
+.hero-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 14px}
+.hero-divider-line{flex:1;max-width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--primary))}
+.hero-divider-line.r{background:linear-gradient(90deg,var(--primary),transparent)}
+.hero-divider-icon{color:var(--primary);font-size:12px}
+.hero-subtitle{font-size:13.5px;color:var(--text);opacity:.85;margin-bottom:16px;letter-spacing:.4px}
+.hero-status{display:inline-flex;align-items:center;gap:8px;background:rgba(76,175,80,.85);color:#fff;padding:8px 18px;border-radius:40px;font-size:12.5px;font-weight:700;margin-bottom:20px;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px)}
+.hero-status.closed{background:rgba(233,30,99,.85)}
+.hero-status.orders{background:rgba(255,152,0,.9);color:#fff}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#7CFC00;box-shadow:0 0 12px #7CFC00;animation:pulse 2s infinite}
+.hero-status.closed .status-dot{background:#FF6B6B;box-shadow:0 0 12px #FF6B6B}
+.hero-status.orders .status-dot{background:#fff;box-shadow:0 0 12px #fff}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.2)}}
+.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:40px;font-weight:700;font-size:13.5px;text-decoration:none;transition:all .3s cubic-bezier(.4,0,.2,1);border:1px solid transparent;letter-spacing:.3px}
+.hero-btn:hover{transform:translateY(-2px)}
+.hero-btn:active{transform:scale(.96)}
+.hero-btn.whatsapp{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;box-shadow:0 8px 24px rgba(37,211,102,.35)}
+.hero-btn.call{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;box-shadow:0 8px 24px rgba(255,152,0,.4)}
+.hero-btn.map{background:color-mix(in srgb,var(--bg) 60%,transparent);color:var(--text);border-color:var(--border-strong);backdrop-filter:blur(8px)}
+.hero-btn.map:hover{background:color-mix(in srgb,var(--bg) 80%,transparent);border-color:var(--primary)}
+
+/* Delivery */
+.delivery-section{max-width:1300px;margin:0 auto;padding:0 20px;transform:translateY(-30px);position:relative;z-index:5}
+.delivery-card{background:var(--card-1);backdrop-filter:blur(20px);border-radius:22px;padding:20px 22px;box-shadow:var(--shadow-lg);border:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.delivery-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
+.delivery-title{font-family:'Amiri',serif;font-size:18px;font-weight:700;color:var(--primary);margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:10px}
+.delivery-options{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.delivery-opt{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:color-mix(in srgb,var(--primary) 8%,transparent);border:1px solid var(--border-strong);border-radius:50px;font-weight:700;font-size:13px;color:var(--text);text-decoration:none;transition:all .3s}
+.delivery-opt:hover{background:color-mix(in srgb,var(--primary) 20%,transparent);border-color:var(--primary);transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,152,0,.25)}
+.delivery-opt-icon{font-size:20px;line-height:1}
+
+/* Controls */
+.controls{max-width:1300px;margin:0 auto;padding:16px 20px 8px}
+.search-wrap{position:relative;margin-bottom:18px;max-width:500px;margin-inline:auto}
+.search-input{width:100%;padding:16px 54px 16px 22px;border-radius:50px;border:1px solid var(--border);background:var(--card-1);font-family:inherit;font-size:14.5px;color:var(--text);outline:none;transition:all .3s}
+.search-input:focus{border-color:var(--primary);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 15%,transparent),var(--shadow)}
+.search-input::placeholder{color:var(--soft)}
+.search-icon{position:absolute;right:22px;top:50%;transform:translateY(-50%);color:var(--primary);font-size:19px;pointer-events:none;opacity:.8}
+
+.categories{display:flex;gap:10px;overflow-x:auto;padding:6px 4px 14px;scrollbar-width:none;justify-content:flex-start}
+.categories::-webkit-scrollbar{display:none}
+@media(min-width:900px){.categories{justify-content:center;flex-wrap:wrap;overflow:visible}}
+.cat-btn{padding:11px 22px;background:transparent;color:var(--dim);border:1px solid var(--border);border-radius:50px;font-weight:600;font-size:13.5px;white-space:nowrap;transition:all .3s;flex-shrink:0;letter-spacing:.4px}
+.cat-btn:hover{color:var(--primary);border-color:var(--primary)}
+.cat-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;border-color:transparent;box-shadow:0 8px 24px rgba(255,152,0,.4);font-weight:800}
+
+/* Menu */
+.menu-section{max-width:1300px;margin:0 auto;padding:20px 20px 120px}
+.menu-header{text-align:center;margin-bottom:32px}
+.menu-header-ornament{color:var(--primary);opacity:.6;font-size:12px;letter-spacing:8px;margin-bottom:6px}
+.menu-title{font-family:'Amiri',serif;font-size:32px;font-weight:700;color:var(--primary);line-height:1;margin-bottom:6px;letter-spacing:1px}
+.menu-count{font-size:12.5px;color:var(--dim);letter-spacing:2px}
+.menu-divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);margin:12px auto 0}
+
+/* Special sections */
+.special-section{margin-bottom:40px}
+.special-heading{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px;padding:0 12px}
+.special-icon{font-size:22px;line-height:1}
+.special-title{font-family:'Amiri',serif;font-size:26px;font-weight:700;color:var(--primary);letter-spacing:1px;white-space:nowrap;position:relative;padding:0 22px}
+.special-title::before,.special-title::after{content:"";position:absolute;top:50%;width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--primary))}
+.special-title::before{right:100%}
+.special-title::after{left:100%;background:linear-gradient(90deg,var(--primary),transparent)}
+
+/* Grid / List */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+@media(min-width:640px){.menu-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}}
+.menu-list{display:flex;flex-direction:column;gap:12px}
+.card-list{display:flex;gap:14px;background:var(--card-1);border-radius:18px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all .3s;padding:12px;align-items:center}
+.card-list:hover{border-color:var(--primary);transform:translateX(-4px);box-shadow:var(--shadow)}
+.card-list:active{transform:scale(.98)}
+.card-list-img{width:100px;height:100px;border-radius:12px;object-fit:cover;flex-shrink:0;background:var(--bg-3)}
+.card-list-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.card-list-name{font-family:'Amiri',serif;font-size:18px;font-weight:700;color:var(--text);line-height:1.3}
+.card-list-desc{font-size:12px;color:var(--dim);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-list-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.card-list-price{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--primary)}
+.card-list-price small{font-family:'Tajawal',sans-serif;font-size:10px;color:var(--dim);font-weight:500}
+.card-list-add{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;box-shadow:0 4px 14px rgba(255,152,0,.4);flex-shrink:0;transition:all .3s}
+.card-list-add:hover{transform:rotate(90deg) scale(1.1)}
+
+/* Card */
+.card{background:var(--card-1);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);transition:all .4s cubic-bezier(.4,0,.2,1);cursor:pointer;display:flex;flex-direction:column;position:relative}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:0;transition:opacity .4s;z-index:3}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg),0 0 0 1px var(--border-strong);border-color:var(--border-strong)}
+.card:hover::before{opacity:1}
+.card:active{transform:scale(.98)}
+.card-img{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--bg-3)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.2,1);filter:brightness(.95) saturate(1.05)}
+.card:hover .card-img img{transform:scale(1.08);filter:brightness(1) saturate(1.15)}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--bg) 70%,transparent) 100%);pointer-events:none}
+.card-badges{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.card-badge{padding:4px 10px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.3px;backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.card-badge.popular{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff}
+.card-badge.offer{background:linear-gradient(135deg,#D32F2F,#E53935);color:#fff}
+.card-cat{position:absolute;top:12px;left:12px;background:color-mix(in srgb,var(--bg) 85%,transparent);color:var(--primary);padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;backdrop-filter:blur(8px);border:1px solid var(--border-strong);z-index:2}
+.card-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:6px}
+.card-name{font-family:'Amiri',serif;font-size:17px;font-weight:700;color:var(--text);line-height:1.3}
+.card-desc{font-size:11.5px;color:var(--dim);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:auto}
+.card-meta{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--primary);margin-top:2px;font-weight:600}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;padding-top:10px;border-top:1px solid var(--border)}
+.card-price{font-family:'Amiri',serif;font-size:19px;font-weight:700;color:var(--primary);line-height:1;display:flex;flex-direction:column;gap:2px}
+.card-price-old{font-size:11px;color:var(--soft);text-decoration:line-through;font-family:'Tajawal',sans-serif;font-weight:400}
+.card-price-val{display:flex;align-items:baseline;gap:2px}
+.card-price small{font-size:10px;font-family:'Tajawal',sans-serif;font-weight:500;color:var(--dim);margin-right:2px}
+.card-add{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:900;box-shadow:0 6px 18px rgba(255,152,0,.4);flex-shrink:0;transition:all .3s}
+.card-add:hover{transform:rotate(90deg) scale(1.1)}
+.card-add:active{transform:scale(.85)}
+
+/* Skeleton / Empty */
+.skeleton{background:var(--card-1);border-radius:20px;overflow:hidden;border:1px solid var(--border)}
+.skeleton-img{aspect-ratio:1/1;background:linear-gradient(90deg,var(--bg-3) 0%,var(--bg-2) 50%,var(--bg-3) 100%);background-size:200% 100%;animation:shimmer 1.6s infinite}
+.skeleton-body{padding:14px;display:flex;flex-direction:column;gap:10px}
+.skeleton-line{height:12px;border-radius:6px;background:linear-gradient(90deg,var(--bg-3) 0%,var(--bg-2) 50%,var(--bg-3) 100%);background-size:200% 100%;animation:shimmer 1.6s infinite}
+.skeleton-line.w60{width:60%}.skeleton-line.w80{width:80%}.skeleton-line.w40{width:40%}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.empty-state{text-align:center;padding:80px 20px;color:var(--dim);grid-column:1/-1}
+.empty-state-icon{font-size:70px;margin-bottom:16px;opacity:.4}
+.empty-state-title{font-family:'Amiri',serif;font-size:22px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.empty-state-text{font-size:14px}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:200;display:flex;align-items:flex-end;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+@media(min-width:640px){.modal-overlay{align-items:center;padding:24px}}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal{background:var(--card-1);border-radius:28px 28px 0 0;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;transform:translateY(40px);transition:transform .4s cubic-bezier(.4,0,.2,1);position:relative;border:1px solid var(--border-strong);box-shadow:var(--shadow-lg)}
+@media(min-width:640px){.modal{border-radius:28px;transform:scale(.94)}}
+.modal-overlay.open .modal{transform:translateY(0)}
+@media(min-width:640px){.modal-overlay.open .modal{transform:scale(1)}}
+.modal-close{position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:50%;background:color-mix(in srgb,var(--bg) 70%,transparent);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px;z-index:5;backdrop-filter:blur(8px);border:1px solid var(--border-strong);transition:all .2s}
+.modal-close:hover{background:var(--primary);color:#fff;transform:rotate(90deg)}
+.modal-img-wrap{position:relative;aspect-ratio:1/1;overflow:hidden}
+.modal-img{width:100%;height:100%;object-fit:cover}
+.modal-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,color-mix(in srgb,var(--bg) 95%,transparent) 100%)}
+.modal-body{padding:0 24px 26px;margin-top:-40px;position:relative;z-index:2}
+.modal-cat{display:inline-block;background:color-mix(in srgb,var(--primary) 12%,transparent);color:var(--primary);padding:5px 14px;border-radius:30px;font-size:11.5px;font-weight:700;margin-bottom:10px;border:1px solid var(--border-strong)}
+.modal-title{font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.2}
+.modal-desc{font-size:14.5px;color:var(--dim);line-height:1.7;margin-bottom:16px}
+.modal-badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.modal-badge{padding:5px 12px;border-radius:20px;font-size:11.5px;font-weight:800}
+.modal-badge.popular{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff}
+.modal-badge.offer{background:linear-gradient(135deg,#D32F2F,#E53935);color:#fff}
+.modal-badge.prep{background:color-mix(in srgb,var(--primary) 15%,transparent);color:var(--primary);border:1px solid var(--border-strong)}
+.modal-price-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:18px}
+.modal-price{font-family:'Amiri',serif;font-size:32px;font-weight:700;color:var(--primary);line-height:1;display:flex;flex-direction:column;gap:2px}
+.modal-price-old{font-size:13px;color:var(--soft);text-decoration:line-through;font-family:'Tajawal',sans-serif;font-weight:400}
+.modal-price small{font-size:13px;font-family:'Tajawal',sans-serif;font-weight:500;color:var(--dim);margin-right:3px}
+.qty-ctrl{display:flex;align-items:center;gap:12px;background:var(--bg-2);border-radius:50px;padding:6px;border:1px solid var(--border)}
+.qty-btn{width:38px;height:38px;border-radius:50%;background:var(--card-1);color:var(--primary);font-size:20px;font-weight:900;display:flex;align-items:center;justify-content:center;transition:all .2s;border:1px solid var(--border)}
+.qty-btn:hover{background:var(--primary);color:#fff}
+.qty-btn:active{transform:scale(.9)}
+.qty-val{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--primary);min-width:28px;text-align:center}
+.add-btn{width:100%;padding:16px;border-radius:50px;background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;font-size:15.5px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 30px rgba(255,152,0,.4);transition:all .3s}
+.add-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,152,0,.6)}
+.add-btn:active{transform:scale(.98)}
+
+/* Drawer */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);z-index:300;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.drawer-overlay.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:100%;max-width:460px;background:var(--bg-2);z-index:301;transform:translateX(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:20px 0 60px rgba(0,0,0,.5);border-left:1px solid var(--border)}
+.drawer.open{transform:translateX(0)}
+.drawer-header{padding:20px 22px;background:var(--card-1);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.drawer-title{font-family:'Amiri',serif;font-size:21px;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:10px}
+.drawer-close{width:40px;height:40px;border-radius:50%;background:color-mix(in srgb,var(--primary) 10%,transparent);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:19px;border:1px solid var(--border-strong);transition:all .2s}
+.drawer-close:hover{background:var(--primary);color:#fff;transform:rotate(90deg)}
+.drawer-body{flex:1;overflow-y:auto;padding:18px}
+.cart-item{display:flex;gap:12px;background:var(--card-1);border-radius:14px;padding:12px;margin-bottom:10px;border:1px solid var(--border);transition:all .3s}
+.cart-item:hover{border-color:var(--border-strong)}
+.cart-item-img{width:76px;height:76px;border-radius:10px;object-fit:cover;background:var(--bg-3);flex-shrink:0;border:1px solid var(--border)}
+.cart-item-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.cart-item-name{font-family:'Amiri',serif;font-size:15.5px;font-weight:700;color:var(--text);line-height:1.3}
+.cart-item-price{font-size:11.5px;color:var(--dim)}
+.cart-item-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.cart-qty{display:flex;align-items:center;gap:8px;background:var(--bg-3);border-radius:20px;padding:3px;border:1px solid var(--border)}
+.cart-qty button{width:26px;height:26px;border-radius:50%;background:var(--card-1);color:var(--primary);font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cart-qty button:hover{background:var(--primary);color:#fff}
+.cart-qty span{font-family:'Amiri',serif;font-size:14px;font-weight:700;color:var(--primary);min-width:18px;text-align:center}
+.cart-item-total{font-family:'Amiri',serif;font-size:15px;font-weight:700;color:var(--primary)}
+.cart-remove{color:#E85D5D;font-size:11.5px;font-weight:700;padding:3px 8px;background:rgba(233,30,99,.15);border-radius:14px;border:1px solid rgba(233,30,99,.3);transition:all .2s;align-self:flex-start;margin-top:2px}
+.cart-remove:hover{background:rgba(233,30,99,.4)}
+.cart-empty{text-align:center;padding:80px 20px;color:var(--dim)}
+.cart-empty-icon{font-size:80px;margin-bottom:18px;opacity:.3}
+.cart-empty-title{font-family:'Amiri',serif;font-size:22px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.drawer-footer{padding:18px 22px 22px;background:var(--card-1);border-top:1px solid var(--border);box-shadow:0 -20px 50px rgba(0,0,0,.2)}
+.cart-total{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--border)}
+.cart-total-label{font-family:'Amiri',serif;font-size:17px;font-weight:700;color:var(--dim)}
+.cart-total-val{font-family:'Amiri',serif;font-size:26px;font-weight:700;color:var(--primary);line-height:1}
+.cart-total-val small{font-size:12px;font-family:'Tajawal',sans-serif;color:var(--dim);font-weight:500;margin-right:3px}
+.checkout-btn{width:100%;padding:16px;border-radius:50px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-size:15.5px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:all .3s}
+.checkout-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,211,102,.6)}
+.checkout-btn:active{transform:scale(.98)}
+
+/* Order form */
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:12.5px;font-weight:700;color:var(--primary);margin-bottom:6px;letter-spacing:.4px}
+.form-label .req{color:var(--hot)}
+.form-input,.form-textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg-2);font-family:inherit;font-size:14.5px;color:var(--text);outline:none;transition:all .3s;resize:none}
+.form-input:focus,.form-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 15%,transparent)}
+.form-textarea{min-height:80px}
+.form-note{font-size:12px;color:var(--dim);margin-top:6px;line-height:1.6}
+.send-order-btn{width:100%;margin-top:8px;padding:16px;border-radius:50px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-size:15.5px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:all .3s}
+.send-order-btn:hover{transform:translateY(-2px)}
+.send-order-btn:active{transform:scale(.98)}
+
+/* Success modal */
+.success-modal{text-align:center;padding:40px 24px;background:var(--card-1);border-radius:28px;max-width:400px;width:100%;border:1px solid var(--border-strong);box-shadow:var(--shadow-lg)}
+.success-icon{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:50px;color:#fff;margin:0 auto 22px;box-shadow:0 0 0 8px rgba(37,211,102,.15),0 0 40px rgba(37,211,102,.5);animation:successPop .5s cubic-bezier(.4,0,.2,1)}
+@keyframes successPop{0%{transform:scale(0);opacity:0}50%{transform:scale(1.15)}100%{transform:scale(1);opacity:1}}
+.success-title{font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--primary);margin-bottom:10px}
+.success-text{font-size:14px;color:var(--dim);line-height:1.7;margin-bottom:22px}
+.success-loader{width:50px;height:50px;border:3px solid var(--border);border-top-color:var(--primary);border-radius:50%;margin:0 auto;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Toast */
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--card-1);color:var(--text);padding:14px 26px;border-radius:50px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow-lg);z-index:500;opacity:0;transition:all .4s cubic-bezier(.4,0,.2,1);pointer-events:none;display:flex;align-items:center;gap:10px;border:1px solid var(--border-strong);max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.success{background:linear-gradient(135deg,#25D366,#128C7E);border-color:rgba(37,211,102,.6);color:#fff}
+.toast.error{background:linear-gradient(135deg,#7A2828,#D32F2F);border-color:rgba(233,30,99,.6);color:#fff}
+
+/* Footer */
+.footer{background:var(--card-1);text-align:center;padding:50px 20px 36px;margin-top:40px;border-top:1px solid var(--border);position:relative}
+.footer::before{content:"";position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
+.footer-ornament{color:var(--primary);opacity:.5;letter-spacing:10px;font-size:11px;margin-bottom:12px}
+.footer-name{font-family:'Amiri',serif;font-size:24px;font-weight:700;color:var(--primary);margin-bottom:8px}
+.footer-addr{font-size:13.5px;color:var(--dim);margin-bottom:22px}
+.footer-socials{display:flex;justify-content:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.footer-social{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:color-mix(in srgb,var(--primary) 8%,transparent);border:1px solid var(--border-strong);border-radius:50px;color:var(--text);text-decoration:none;font-size:12.5px;font-weight:600;transition:all .3s}
+.footer-social:hover{background:color-mix(in srgb,var(--primary) 20%,transparent);border-color:var(--primary);transform:translateY(-2px)}
+.footer-copy{font-size:11.5px;color:var(--soft);padding-top:20px;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-inner">
+    <a class="logo-wrap" href="#">
+      <div class="logo">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <!-- كأس عصير -->
+          <path d="M10 8 L20 22 L30 8"/>
+          <path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/>
+          <path d="M20 22 L20 34"/>
+          <path d="M14 34 L26 34"/>
+          <!-- فقاعات فواكه -->
+          <circle cx="16" cy="12" r="1.5" fill="currentColor"/>
+          <circle cx="24" cy="14" r="1.2" fill="currentColor"/>
+          <circle cx="20" cy="17" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name" id="brandName">أبو صلاح</div>
+        <div class="brand-sub" id="brandSub">· كفرسوسة ·</div>
+      </div>
+    </a>
+    <button class="cart-btn" id="openCartBtn" aria-label="السلة">
+      <span>🛒</span>
+      <span class="cart-badge hidden" id="cartBadge">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-glass">
+    <div class="hero-ornament">✦ ✦ ✦</div>
+    <h1 class="hero-name" id="heroName">أبو صلاح</h1>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <span class="hero-divider-icon">✦</span>
+      <div class="hero-divider-line r"></div>
+    </div>
+    <p class="hero-subtitle" id="heroSubtitle">كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق</p>
+    <div class="hero-status" id="heroStatus">
+      <span class="status-dot"></span>
+      <span id="heroStatusText">مفتوح الآن</span>
+    </div>
+    <div class="hero-actions" id="heroActions"></div>
+  </div>
+</section>
+
+<section class="delivery-section" id="deliverySection" style="display:none">
+  <div class="delivery-card">
+    <div class="delivery-title">🛵 <span id="deliveryTitle">خيارات التوصيل</span></div>
+    <div class="delivery-options" id="deliveryOptions"></div>
+  </div>
+</section>
+
+<section class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن صنف...">
+  </div>
+  <div class="categories" id="categories"></div>
+</section>
+
+<section class="menu-section">
+  <div class="menu-header">
+    <div class="menu-header-ornament">✦ ✦ ✦</div>
+    <h2 class="menu-title">قائمتنا</h2>
+    <div class="menu-count" id="menuCount"></div>
+    <div class="menu-divider"></div>
+  </div>
+  <div id="menuContainer"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-ornament">✦ ✦ ✦</div>
+  <div class="footer-name" id="footerName">أبو صلاح</div>
+  <div class="footer-addr" id="footerAddr">كفرسوسة - دمشق</div>
+  <div class="footer-socials" id="footerSocials"></div>
+  <div class="footer-copy">© <span id="year"></span> جميع الحقوق محفوظة · أبو صلاح</div>
+</footer>
+
+<!-- Item Modal -->
+<div class="modal-overlay" id="itemModal">
+  <div class="modal">
+    <button class="modal-close" id="closeItemModal">✕</button>
+    <div class="modal-img-wrap"><img class="modal-img" id="modalImg" alt=""></div>
+    <div class="modal-body">
+      <span class="modal-cat" id="modalCat"></span>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-badges" id="modalBadges"></div>
+      <div class="modal-price-row">
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="qty-ctrl">
+          <button class="qty-btn" id="modalQtyMinus">−</button>
+          <span class="qty-val" id="modalQty">1</span>
+          <button class="qty-btn" id="modalQtyPlus">+</button>
+        </div>
+      </div>
+      <button class="add-btn" id="modalAddBtn">✦ أضف إلى السلة</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cart -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-header">
+    <div class="drawer-title">🛒 سلة الطلبات</div>
+    <button class="drawer-close" id="closeCartBtn">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">المجموع</span>
+      <span class="cart-total-val"><span id="cartTotal">0</span> <small>ل.س</small></span>
+    </div>
+    <button class="checkout-btn" id="checkoutBtn">✦ إتمام الطلب</button>
+  </div>
+</aside>
+
+<!-- Order Modal -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <button class="modal-close" id="closeOrderModal">✕</button>
+    <div class="modal-body" style="padding-top:32px">
+      <div class="hero-ornament" style="font-size:15px;letter-spacing:8px;margin-bottom:8px">✦ ✦ ✦</div>
+      <h2 class="modal-title" style="text-align:center;margin-bottom:12px">بيانات الطلب</h2>
+      <p class="form-note" style="text-align:center;margin-bottom:20px">املأ بياناتك وسيتم إرسال الطلب مباشرة للمحل</p>
+      <div class="form-group">
+        <label class="form-label">الاسم <span class="req">*</span></label>
+        <input type="text" class="form-input" id="custName" placeholder="اسمك الكريم">
+      </div>
+      <div class="form-group">
+        <label class="form-label">رقم الهاتف <span class="req">*</span></label>
+        <input type="tel" class="form-input" id="custPhone" placeholder="09xxxxxxxx">
+      </div>
+      <div class="form-group">
+        <label class="form-label">العنوان <span class="req">*</span></label>
+        <input type="text" class="form-input" id="custAddr" placeholder="المنطقة، الشارع، رقم البناء">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ملاحظات (اختياري)</label>
+        <textarea class="form-textarea" id="custNotes" placeholder="أي ملاحظات إضافية..."></textarea>
+      </div>
+      <button class="send-order-btn" id="sendOrderBtn">📱 إرسال الطلب</button>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="success-modal">
+    <div class="success-icon">✓</div>
+    <h2 class="success-title">تم استلام طلبك</h2>
+    <p class="success-text">جاري تحويلك لإتمام الطلب...<br>يجهز طلبك خلال وقت قصير 🌹</p>
+    <div class="success-loader"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD92e43exJdSnwB3N8Cl5I1ro3pr1H8x8s",
+  authDomain: "salah-e00b1.firebaseapp.com",
+  projectId: "salah-e00b1",
+  storageBucket: "salah-e00b1.firebasestorage.app",
+  messagingSenderId: "975779690045",
+  appId: "1:975779690045:web:daa61b120aa146b7bd9c54"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const DEFAULT_SETTINGS = {
+  name: "أبو صلاح",
+  subtitle: "كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق",
+  status: "مفتوح الآن",
+  statusType: "open",
+  whatsapp: "963982699556",
+  whatsappDisplay: "0982699556",
+  phone: "963112158109",
+  phoneDisplay: "011-215-8109",
+  phone2: "",
+  phone2Display: "",
+  address: "كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=فواكه+أبو+صلاح+كفرسوسة+دمشق",
+  deliveryNote: "خيارات التوصيل",
+  deliveryShow: true,
+  deliveryOptions: [
+    { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵" },
+    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱" },
+    { name: "موفو", url: "https://movo.sy/", icon: "📞" }
+  ],
+  heroImage: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=1600&q=80",
+  theme: "luxury",
+  menuLayout: "grid",
+  showPopular: true,
+  showOffers: true,
+  showPrepTime: true,
+  showCallButton: true,
+  confirmOrder: true
+};
+
+let allItems = [];
+let settings = { ...DEFAULT_SETTINGS };
+let activeCategory = "الكل";
+let searchQuery = "";
+let cart = [];
+let currentItem = null;
+let currentQty = 1;
+
+const $ = id => document.getElementById(id);
+const fmt = n => Number(n || 0).toLocaleString('en-US');
+
+function showToast(msg, type = "") {
+  const t = $("toast");
+  t.textContent = msg;
+  t.className = "toast show " + type;
+  clearTimeout(t._tid);
+  t._tid = setTimeout(() => t.className = "toast " + type, 3000);
+}
+
+function getEffectivePrice(item) {
+  if (item.isOffer && item.offerPrice && Number(item.offerPrice) < Number(item.price)) return Number(item.offerPrice);
+  return Number(item.price) || 0;
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme || "luxury");
+}
+
+function renderSettings() {
+  applyTheme(settings.theme);
+  document.title = settings.name + " | قائمة الطعام";
+  $("brandName").textContent = settings.name;
+  const city = (settings.subtitle || "").split(/[—\-.]/).filter(Boolean).pop() || "دمشق";
+  $("brandSub").textContent = "· " + city.trim() + " ·";
+  $("heroName").textContent = settings.name;
+  $("heroSubtitle").textContent = settings.subtitle || "";
+  $("footerName").textContent = settings.name;
+  $("footerAddr").textContent = settings.address || "";
+
+  const st = $("heroStatus");
+  st.className = "hero-status " + (settings.statusType === "closed" ? "closed" : settings.statusType === "orders" ? "orders" : "");
+  $("heroStatusText").textContent = settings.status || "مفتوح الآن";
+
+  if (settings.heroImage) $("heroBg").style.backgroundImage = `url('${settings.heroImage}')`;
+
+  const wa = settings.whatsapp ? `https://wa.me/${settings.whatsapp}` : "#";
+  let actionsHtml = "";
+  if (settings.whatsapp) actionsHtml += `<a class="hero-btn whatsapp" href="${wa}" target="_blank" rel="noopener">💬 واتساب</a>`;
+  if (settings.phone && settings.showCallButton !== false) actionsHtml += `<a class="hero-btn call" href="tel:${settings.phone}">📞 اتصل مباشرة</a>`;
+  if (settings.mapUrl) actionsHtml += `<a class="hero-btn map" href="${settings.mapUrl}" target="_blank" rel="noopener">📍 الموقع</a>`;
+  $("heroActions").innerHTML = actionsHtml;
+
+  if (settings.deliveryShow && Array.isArray(settings.deliveryOptions) && settings.deliveryOptions.length) {
+    $("deliverySection").style.display = "block";
+    $("deliveryTitle").textContent = settings.deliveryNote || "خيارات التوصيل";
+    $("deliveryOptions").innerHTML = settings.deliveryOptions.map(o =>
+      `<a class="delivery-opt" href="${o.url || '#'}" target="_blank" rel="noopener"><span class="delivery-opt-icon">${o.icon || '🛵'}</span><span>${o.name || ''}</span></a>`
+    ).join("");
+  } else {
+    $("deliverySection").style.display = "none";
+  }
+
+  let socials = "";
+  if (settings.whatsapp) socials += `<a class="footer-social" href="${wa}" target="_blank" rel="noopener">💬 واتساب</a>`;
+  if (settings.phone) socials += `<a class="footer-social" href="tel:${settings.phone}">📞 ${settings.phoneDisplay || settings.phone}</a>`;
+  if (settings.phone2) socials += `<a class="footer-social" href="tel:${settings.phone2}">☎️ ${settings.phone2Display || settings.phone2}</a>`;
+  $("footerSocials").innerHTML = socials;
+}
+
+function renderCategories() {
+  const cats = ["الكل", ...new Set(allItems.map(i => i.category).filter(Boolean))];
+  $("categories").innerHTML = cats.map(c =>
+    `<button class="cat-btn ${c === activeCategory ? 'active' : ''}" data-cat="${c}">${c}</button>`
+  ).join("");
+  document.querySelectorAll(".cat-btn").forEach(btn => {
+    btn.onclick = () => {
+      activeCategory = btn.dataset.cat;
+      renderCategories();
+      renderMenu();
+    };
+  });
+}
+
+function applyFilters() {
+  const q = searchQuery.trim().toLowerCase();
+  return allItems.filter(i => {
+    if (activeCategory !== "الكل" && i.category !== activeCategory) return false;
+    if (!q) return true;
+    return (i.name || "").toLowerCase().includes(q) || (i.description || "").toLowerCase().includes(q);
+  }).sort((a, b) => (a.category || '').localeCompare(b.category || '', 'ar'));
+}
+
+function buildCardHtml(item, layout) {
+  const img = item.imageUrl || "https://placehold.co/600x600/FF9800/FFF?text=Abo+Salah";
+  const onerr = `this.src='https://placehold.co/600x600/FF9800/FFF?text=Abo+Salah'`;
+  const price = getEffectivePrice(item);
+  const isOffer = item.isOffer && item.offerPrice && Number(item.offerPrice) < Number(item.price);
+  const showPop = item.isPopular && settings.showPopular;
+  const showOff = item.isOffer && settings.showOffers;
+  const showPrep = item.prepTime && settings.showPrepTime !== false;
+
+  const badges = `
+    ${showPop ? '<span class="card-badge popular">⭐ الأكثر طلباً</span>' : ''}
+    ${showOff ? '<span class="card-badge offer">🔥 عرض</span>' : ''}
+  `;
+
+  if (layout === "list") {
+    return `<div class="card-list" data-id="${item.id}">
+      <img class="card-list-img" src="${img}" alt="${item.name}" loading="lazy" onerror="${onerr}">
+      <div class="card-list-info">
+        <div class="card-list-name">${item.name || ''}</div>
+        <div class="card-list-desc">${item.description || ''}</div>
+        <div class="card-list-bottom">
+          <div class="card-list-price">
+            ${isOffer ? `<span style="text-decoration:line-through;color:var(--soft);font-size:13px;font-family:Tajawal,sans-serif;font-weight:400;margin-left:4px">${fmt(item.price)}</span>` : ''}
+            ${fmt(price)} <small>ل.س</small>
+          </div>
+          <button class="card-list-add" data-add="${item.id}">+</button>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  return `<div class="card" data-id="${item.id}">
+    <div class="card-img">
+      <img src="${img}" alt="${item.name}" loading="lazy" onerror="${onerr}">
+      <div class="card-badges">${badges}</div>
+      <span class="card-cat">${item.category || ''}</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">${item.name || ''}</div>
+      <div class="card-desc">${item.description || '&nbsp;'}</div>
+      ${showPrep ? `<div class="card-meta">🕐 يجهز خلال ${item.prepTime} دقيقة</div>` : ''}
+      <div class="card-footer">
+        <div class="card-price">
+          ${isOffer ? `<span class="card-price-old">${fmt(item.price)}</span>` : ''}
+          <span class="card-price-val">${fmt(price)} <small>ل.س</small></span>
+        </div>
+        <button class="card-add" data-add="${item.id}">+</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function attachCardEvents(container) {
+  container.querySelectorAll("[data-add]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const item = allItems.find(x => x.id === btn.dataset.add);
+      if (item) addToCart(item, 1);
+    });
+  });
+  container.querySelectorAll(".card, .card-list").forEach(card => {
+    card.addEventListener("click", () => {
+      const item = allItems.find(x => x.id === card.dataset.id);
+      if (item) openItemModal(item);
+    });
+  });
+}
+
+function renderMenu() {
+  const container = $("menuContainer");
+  const filtered = applyFilters();
+  $("menuCount").textContent = filtered.length ? `· ${filtered.length} صنف ·` : "";
+
+  if (!filtered.length) {
+    container.innerHTML = `<div class="empty-state">
+      <div class="empty-state-icon">✦</div>
+      <div class="empty-state-title">لا توجد أصناف</div>
+      <div class="empty-state-text">${allItems.length ? "جرب البحث بكلمة أخرى" : "القائمة قيد التحديث"}</div>
+    </div>`;
+    return;
+  }
+
+  const layout = settings.menuLayout || "grid";
+  const isFiltering = activeCategory !== "الكل" || searchQuery.trim();
+
+  if (!isFiltering) {
+    const popularItems = filtered.filter(i => i.isPopular && settings.showPopular);
+    const offerItems = filtered.filter(i => i.isOffer && settings.showOffers && !i.isPopular);
+    const regularItems = filtered.filter(i => !(i.isPopular && settings.showPopular) && !(i.isOffer && settings.showOffers));
+
+    let html = "";
+
+    if (popularItems.length) {
+      html += `<div class="special-section">
+        <div class="special-heading">
+          <span class="special-icon">⭐</span>
+          <h3 class="special-title">الأكثر طلباً</h3>
+        </div>
+        <div class="menu-grid">${popularItems.map(i => buildCardHtml(i, "grid")).join("")}</div>
+      </div>`;
+    }
+
+    if (offerItems.length) {
+      html += `<div class="special-section">
+        <div class="special-heading">
+          <span class="special-icon">🔥</span>
+          <h3 class="special-title">عروض اليوم</h3>
+        </div>
+        <div class="menu-grid">${offerItems.map(i => buildCardHtml(i, "grid")).join("")}</div>
+      </div>`;
+    }
+
+    if (regularItems.length) {
+      if (layout === "sections") {
+        const grouped = {};
+        regularItems.forEach(i => {
+          const c = i.category || "أخرى";
+          if (!grouped[c]) grouped[c] = [];
+          grouped[c].push(i);
+        });
+        const sortedCats = Object.keys(grouped).sort((a, b) => a.localeCompare(b, 'ar'));
+        html += sortedCats.map(cat => `
+          <div class="special-section">
+            <div class="special-heading"><h3 class="special-title">${cat}</h3></div>
+            <div class="menu-grid">${grouped[cat].map(i => buildCardHtml(i, "grid")).join("")}</div>
+          </div>
+        `).join("");
+      } else if (layout === "list") {
+        html += `<div class="menu-list">${regularItems.map(i => buildCardHtml(i, "list")).join("")}</div>`;
+      } else {
+        html += `<div class="menu-grid">${regularItems.map(i => buildCardHtml(i, "grid")).join("")}</div>`;
+      }
+    }
+
+    container.innerHTML = html;
+  } else {
+    if (layout === "list") {
+      container.innerHTML = `<div class="menu-list">${filtered.map(i => buildCardHtml(i, "list")).join("")}</div>`;
+    } else if (layout === "sections") {
+      const grouped = {};
+      filtered.forEach(i => {
+        const c = i.category || "أخرى";
+        if (!grouped[c]) grouped[c] = [];
+        grouped[c].push(i);
+      });
+      const sortedCats = Object.keys(grouped).sort((a, b) => a.localeCompare(b, 'ar'));
+      container.innerHTML = sortedCats.map(cat => `
+        <div class="special-section">
+          <div class="special-heading"><h3 class="special-title">${cat}</h3></div>
+          <div class="menu-grid">${grouped[cat].map(i => buildCardHtml(i, "grid")).join("")}</div>
+        </div>
+      `).join("");
+    } else {
+      container.innerHTML = `<div class="menu-grid">${filtered.map(i => buildCardHtml(i, "grid")).join("")}</div>`;
+    }
+  }
+
+  attachCardEvents(container);
+}
+
+function openItemModal(item) {
+  currentItem = item;
+  currentQty = 1;
+  $("modalImg").src = item.imageUrl || "https://placehold.co/600x600/FF9800/FFF?text=Abo+Salah";
+  $("modalImg").onerror = function () { this.src = "https://placehold.co/600x600/FF9800/FFF?text=Abo+Salah"; };
+  $("modalCat").textContent = item.category || "";
+  $("modalTitle").textContent = item.name || "";
+  $("modalDesc").textContent = item.description || "طبق مميز من مطبخنا";
+
+  const price = getEffectivePrice(item);
+  const isOffer = item.isOffer && item.offerPrice && Number(item.offerPrice) < Number(item.price);
+  $("modalPrice").innerHTML = `
+    ${isOffer ? `<span class="modal-price-old">${fmt(item.price)} ل.س</span>` : ''}
+    <span>${fmt(price)} <small>ل.س</small></span>
+  `;
+
+  let badgesHtml = "";
+  if (item.isPopular && settings.showPopular) badgesHtml += `<span class="modal-badge popular">⭐ الأكثر طلباً</span>`;
+  if (item.isOffer && settings.showOffers) badgesHtml += `<span class="modal-badge offer">🔥 عرض خاص</span>`;
+  if (item.prepTime && settings.showPrepTime !== false) badgesHtml += `<span class="modal-badge prep">🕐 يجهز خلال ${item.prepTime} دقيقة</span>`;
+  $("modalBadges").innerHTML = badgesHtml;
+
+  $("modalQty").textContent = currentQty;
+  $("itemModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeItemModal() {
+  $("itemModal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+$("closeItemModal").onclick = closeItemModal;
+$("itemModal").addEventListener("click", e => { if (e.target === $("itemModal")) closeItemModal(); });
+$("modalQtyPlus").onclick = () => { currentQty++; $("modalQty").textContent = currentQty; };
+$("modalQtyMinus").onclick = () => { if (currentQty > 1) { currentQty--; $("modalQty").textContent = currentQty; } };
+$("modalAddBtn").onclick = () => {
+  if (!currentItem) return;
+  addToCart(currentItem, currentQty);
+  closeItemModal();
+};
+
+function addToCart(item, qty) {
+  const price = getEffectivePrice(item);
+  const existing = cart.find(c => c.id === item.id);
+  if (existing) existing.qty += qty;
+  else cart.push({ id: item.id, name: item.name, price, imageUrl: item.imageUrl, qty });
+  updateCartUI();
+  const badge = $("cartBadge");
+  badge.classList.remove("bump");
+  void badge.offsetWidth;
+  badge.classList.add("bump");
+  showToast(`✦ أضيف "${item.name}"`, "success");
+}
+function removeFromCart(id) { cart = cart.filter(c => c.id !== id); updateCartUI(); }
+function updateQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) removeFromCart(id);
+  else updateCartUI();
+}
+function cartTotal() { return cart.reduce((s, c) => s + (Number(c.price) || 0) * c.qty, 0); }
+function updateCartUI() {
+  const count = cart.reduce((s, c) => s + c.qty, 0);
+  const badge = $("cartBadge");
+  if (count > 0) { badge.textContent = count; badge.classList.remove("hidden"); }
+  else badge.classList.add("hidden");
+
+  const body = $("cartBody");
+  if (!cart.length) {
+    body.innerHTML = `<div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <div class="cart-empty-title">السلة فارغة</div>
+    </div>`;
+    $("cartFooter").style.display = "none";
+    return;
+  }
+  body.innerHTML = cart.map(c => `
+    <div class="cart-item">
+      <img class="cart-item-img" src="${c.imageUrl || 'https://placehold.co/200x200/FF9800/FFF?text=K'}" onerror="this.src='https://placehold.co/200x200/FF9800/FFF?text=K'" alt="">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${c.name}</div>
+        <div class="cart-item-price">${fmt(c.price)} ل.س للوحدة</div>
+        <div class="cart-item-row">
+          <div class="cart-qty">
+            <button data-minus="${c.id}">−</button>
+            <span>${c.qty}</span>
+            <button data-plus="${c.id}">+</button>
+          </div>
+          <div class="cart-item-total">${fmt(c.price * c.qty)} ل.س</div>
+        </div>
+        <button class="cart-remove" data-remove="${c.id}">🗑️ حذف</button>
+      </div>
+    </div>
+  `).join("");
+  body.querySelectorAll("[data-plus]").forEach(b => b.onclick = () => updateQty(b.dataset.plus, 1));
+  body.querySelectorAll("[data-minus]").forEach(b => b.onclick = () => updateQty(b.dataset.minus, -1));
+  body.querySelectorAll("[data-remove]").forEach(b => b.onclick = () => removeFromCart(b.dataset.remove));
+  $("cartTotal").textContent = fmt(cartTotal());
+  $("cartFooter").style.display = "block";
+}
+
+function openCart() {
+  $("cartDrawer").classList.add("open");
+  $("drawerOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeCart() {
+  $("cartDrawer").classList.remove("open");
+  $("drawerOverlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+$("openCartBtn").onclick = openCart;
+$("closeCartBtn").onclick = closeCart;
+$("drawerOverlay").onclick = closeCart;
+
+$("checkoutBtn").onclick = () => {
+  if (!cart.length) return;
+  closeCart();
+  $("orderModal").classList.add("open");
+  document.body.style.overflow = "hidden";
+};
+$("closeOrderModal").onclick = () => {
+  $("orderModal").classList.remove("open");
+  document.body.style.overflow = "";
+};
+$("orderModal").addEventListener("click", e => {
+  if (e.target === $("orderModal")) {
+    $("orderModal").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+});
+
+function buildWhatsAppMessage(name, phone, addr, notes) {
+  let msg = `✦ *طلب جديد من ${settings.name}* ✦\n\n`;
+  msg += `👤 الاسم: ${name}\n📞 الهاتف: ${phone}\n📍 العنوان: ${addr}\n`;
+  if (notes) msg += `📝 ملاحظات: ${notes}\n`;
+  msg += `\n🛒 *تفاصيل الطلب:*\n━━━━━━━━━━━━━━━\n`;
+  cart.forEach((c, i) => { msg += `${i + 1}. ${c.name} × ${c.qty} = ${fmt(c.price * c.qty)} ل.س\n`; });
+  msg += `━━━━━━━━━━━━━━━\n💰 *المجموع: ${fmt(cartTotal())} ل.س*\n\nشكراً لتعاملكم معنا 🌹`;
+  return msg;
+}
+
+$("sendOrderBtn").onclick = () => {
+  const name = $("custName").value.trim();
+  const phone = $("custPhone").value.trim();
+  const addr = $("custAddr").value.trim();
+  const notes = $("custNotes").value.trim();
+
+  if (!name) return showToast("⚠️ الرجاء إدخال الاسم", "error");
+  if (!phone) return showToast("⚠️ الرجاء إدخال رقم الهاتف", "error");
+  if (!addr) return showToast("⚠️ الرجاء إدخال العنوان", "error");
+
+  const msg = buildWhatsAppMessage(name, phone, addr, notes);
+  const url = `https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $("orderModal").classList.remove("open");
+
+  if (settings.confirmOrder !== false) {
+    $("successModal").classList.add("open");
+    setTimeout(() => {
+      window.open(url, "_blank");
+      $("successModal").classList.remove("open");
+      document.body.style.overflow = "";
+      cart = [];
+      updateCartUI();
+      $("custName").value = "";
+      $("custPhone").value = "";
+      $("custAddr").value = "";
+      $("custNotes").value = "";
+    }, 1800);
+  } else {
+    window.open(url, "_blank");
+    document.body.style.overflow = "";
+    cart = [];
+    updateCartUI();
+    $("custName").value = "";
+    $("custPhone").value = "";
+    $("custAddr").value = "";
+    $("custNotes").value = "";
+    showToast("✦ جاري تحويلك...", "success");
+  }
+};
+
+$("searchInput").addEventListener("input", e => {
+  searchQuery = e.target.value;
+  renderMenu();
+});
+
+window.addEventListener("scroll", () => {
+  $("header").classList.toggle("scrolled", window.scrollY > 10);
+});
+
+function listenMenu() {
+  onSnapshot(doc(db, "menu", "all"), snap => {
+    if (snap.exists()) {
+      const data = snap.data();
+      allItems = Array.isArray(data.items) ? data.items : [];
+    } else {
+      allItems = [];
+    }
+    renderCategories();
+    renderMenu();
+  }, err => {
+    console.error("Menu listener error:", err);
+    allItems = [];
+    renderMenu();
+  });
+}
+
+function listenSettings() {
+  onSnapshot(doc(db, "settings", "info"), snap => {
+    if (snap.exists()) {
+      settings = { ...DEFAULT_SETTINGS, ...snap.data() };
+      if (!Array.isArray(settings.deliveryOptions) || !settings.deliveryOptions.length) {
+        settings.deliveryOptions = DEFAULT_SETTINGS.deliveryOptions;
+      }
+    }
+    renderSettings();
+    renderMenu();
+  }, err => {
+    console.error("Settings listener error:", err);
+    renderSettings();
+  });
+}
+
+function init() {
+  $("year").textContent = new Date().getFullYear();
+  applyTheme(DEFAULT_SETTINGS.theme);
+  $("menuContainer").innerHTML = `<div class="menu-grid">${Array.from({ length: 6 }, () => `
+    <div class="skeleton">
+      <div class="skeleton-img"></div>
+      <div class="skeleton-body">
+        <div class="skeleton-line w80"></div>
+        <div class="skeleton-line w60"></div>
+        <div class="skeleton-line w40"></div>
+      </div>
+    </div>`).join("")}</div>`;
+  renderSettings();
+  listenMenu();
+  listenSettings();
+}
+
+init();
+</script>
+</body>
+</html>
