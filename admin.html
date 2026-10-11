@@ -8,11 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <style>
-:root{--bg:#0A2E36;--bg-2:#0E3A44;--bg-3:#134850;--primary:#FF9800;--primary-2:#FFB74D;--primary-3:#E68A00;--accent:#4DD0E1;--hot:#E91E63;--text:#F5F0E1;--dim:#A8C5CC;--soft:#6B8A92;--card-1:#0E3A44;--card-2:#134850;--border:rgba(255,152,0,.2);--border-strong:rgba(255,152,0,.4);--shadow:0 10px 30px rgba(0,0,0,.4);--shadow-lg:0 24px 60px rgba(0,0,0,.6)}
+/* Themes - same as index.html */
+:root, [data-theme="luxury"]{--bg:#0A2E36;--bg-2:#0E3A44;--bg-3:#134850;--primary:#FF9800;--primary-2:#FFB74D;--primary-3:#E68A00;--accent:#4DD0E1;--hot:#E91E63;--text:#F5F0E1;--dim:#A8C5CC;--soft:#6B8A92;--card-1:#0E3A44;--card-2:#134850;--border:rgba(255,152,0,.2);--border-strong:rgba(255,152,0,.4);--shadow:0 10px 30px rgba(0,0,0,.4);--shadow-lg:0 24px 60px rgba(0,0,0,.6)}
+[data-theme="clean"]{--bg:#FFFFFF;--bg-2:#F8F9FA;--bg-3:#EEF2F5;--primary:#00BCD4;--primary-2:#26C6DA;--primary-3:#0097A7;--accent:#FF9800;--hot:#E91E63;--text:#1A2E36;--dim:#546E7A;--soft:#90A4AE;--card-1:#FFFFFF;--card-2:#F8F9FA;--border:rgba(0,188,212,.2);--border-strong:rgba(0,188,212,.4);--shadow:0 10px 30px rgba(0,0,0,.08);--shadow-lg:0 24px 60px rgba(0,0,0,.15)}
+[data-theme="summer"]{--bg:#FFF8E7;--bg-2:#FFF3D6;--bg-3:#FFE9B8;--primary:#F57C00;--primary-2:#FF9800;--primary-3:#E65100;--accent:#4DD0E1;--hot:#E91E63;--text:#3E2723;--dim:#795548;--soft:#A1887F;--card-1:#FFFFFF;--card-2:#FFF8E7;--border:rgba(245,124,0,.25);--border-strong:rgba(245,124,0,.5);--shadow:0 10px 30px rgba(62,39,35,.12);--shadow-lg:0 24px 60px rgba(62,39,35,.2)}
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,var(--bg),var(--bg-2));color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
+body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh;transition:background .4s,color .4s}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 input,textarea,select{font-family:inherit}
 img{display:block;max-width:100%}
@@ -23,11 +28,11 @@ img{display:block;max-width:100%}
 
 /* Login */
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-.login-card{background:linear-gradient(160deg,var(--card-1),var(--bg));border-radius:28px;padding:40px 30px;max-width:420px;width:100%;box-shadow:var(--shadow-lg),0 0 0 1px var(--border);position:relative;overflow:hidden}
+.login-card{background:var(--card-1);border-radius:28px;padding:40px 30px;max-width:420px;width:100%;box-shadow:var(--shadow-lg),0 0 0 1px var(--border);position:relative;overflow:hidden}
 .login-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--primary),var(--hot),var(--primary),var(--accent))}
-.login-logo{width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 20px;box-shadow:0 8px 30px rgba(255,152,0,.35);position:relative;background:var(--bg-3)}
-.login-logo img{width:100%;height:100%;object-fit:contain}
-.login-logo svg{width:50px;height:50px;color:var(--primary);margin:25px auto}
+.login-logo{width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 20px;box-shadow:0 8px 30px rgba(255,152,0,.35);display:flex;align-items:center;justify-content:center}
+.login-logo img{width:135%;height:135%;object-fit:cover;flex-shrink:0}
+.login-logo svg{width:50px;height:50px;color:var(--primary)}
 .login-ornament{text-align:center;color:var(--primary);opacity:.6;letter-spacing:10px;font-size:12px;margin-bottom:8px}
 .login-title{text-align:center;font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--primary);margin-bottom:6px}
 .login-sub{text-align:center;font-size:13px;color:var(--dim);margin-bottom:28px}
@@ -57,8 +62,8 @@ img{display:block;max-width:100%}
 .admin-header{background:var(--card-1);padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);border-bottom:1px solid var(--border)}
 .admin-header-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .admin-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.admin-logo{width:50px;height:50px;border-radius:50%;overflow:hidden;background:var(--bg-3);box-shadow:0 0 0 1px var(--border-strong);flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.admin-logo img{width:100%;height:100%;object-fit:contain}
+.admin-logo{width:50px;height:50px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px var(--border-strong);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.admin-logo img{width:135%;height:135%;object-fit:cover;flex-shrink:0}
 .admin-logo svg{width:26px;height:26px;color:var(--primary)}
 .admin-brand-name{font-family:'Amiri',serif;font-size:18px;font-weight:700;color:var(--primary);line-height:1.1}
 .admin-brand-sub{font-size:11px;color:var(--dim);letter-spacing:1px;margin-top:2px}
@@ -170,6 +175,8 @@ img{display:block;max-width:100%}
 .items-list{display:flex;flex-direction:column;gap:10px}
 .item-row{display:flex;gap:14px;background:var(--bg-2);border-radius:14px;padding:12px;border:1px solid var(--border);align-items:center;transition:all .2s}
 .item-row:hover{border-color:var(--border-strong);background:var(--bg-3)}
+.item-row.dragging-ghost{opacity:.4;background:var(--primary);border-color:var(--primary)}
+.item-row.dragging-chosen{cursor:grabbing;box-shadow:var(--shadow-lg);transform:scale(1.02)}
 .item-row-img{width:70px;height:70px;border-radius:12px;object-fit:cover;background:var(--bg-3);flex-shrink:0;border:1px solid var(--border)}
 .item-row-info{flex:1;min-width:0}
 .item-row-name{font-family:'Amiri',serif;font-size:16.5px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -218,7 +225,7 @@ img{display:block;max-width:100%}
 <div class="login-wrap" id="loginWrap">
   <div class="login-card">
     <div class="login-logo" id="loginLogoBox">
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 L20 22 L30 8"/><path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/><path d="M20 22 L20 34"/><path d="M14 34 L26 34"/></svg>
+      <img src="https://res.cloudinary.com/vfdkxutu/image/upload/f_png/abo_salah_logo.ai" alt="أبو صلاح">
     </div>
     <div class="login-ornament">✦ ✦ ✦</div>
     <h1 class="login-title">لوحة التحكم</h1>
@@ -244,7 +251,7 @@ img{display:block;max-width:100%}
     <div class="admin-header-inner">
       <div class="admin-brand">
         <div class="admin-logo" id="adminLogoBox">
-          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 L20 22 L30 8"/><path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/><path d="M20 22 L20 34"/><path d="M14 34 L26 34"/></svg>
+          <img src="https://res.cloudinary.com/vfdkxutu/image/upload/f_png/abo_salah_logo.ai" alt="أبو صلاح">
         </div>
         <div>
           <div class="admin-brand-name">لوحة التحكم</div>
@@ -286,7 +293,7 @@ img{display:block;max-width:100%}
         <div class="info-banner"><div class="info-banner-icon">⭐</div><div>حددي <strong>5-7 أصناف "الأكثر طلباً"</strong> عشان تظهر بقسم مميز بأول الموقع.</div></div>
         <div class="info-banner"><div class="info-banner-icon">🔥</div><div>حطي <strong>2-3 أصناف "عروض اليوم"</strong> بسعر مخفض لجذب الانتباه.</div></div>
         <div class="info-banner"><div class="info-banner-icon">🎨</div><div>جربي <strong>3 ثيمات ألوان</strong> من تبويب "التصميم" — كل ثيم يعطي إحساس مختلف.</div></div>
-        <div class="info-banner"><div class="info-banner-icon">🔄</div><div>رتبي <strong>الأقسام</strong> من تبويب "التصميم" — اسحبي القسم اللي بدك ياه بأول.</div></div>
+        <div class="info-banner"><div class="info-banner-icon">🔄</div><div>رتبي <strong>الأقسام بالسحب</strong> من تبويب "التصميم" — اسحبي القسم اللي بدك ياه بأول.</div></div>
       </div>
     </section>
 
@@ -296,7 +303,6 @@ img{display:block;max-width:100%}
         <h1 class="panel-title"><span class="panel-title-icon">🍹</span> الأصناف</h1>
         <p class="panel-sub">إضافة، تعديل، وحذف أصناف القائمة</p>
       </div>
-
       <div class="card-box">
         <div class="card-box-title"><span class="card-box-title-icon">➕</span> <span id="formTitle">إضافة صنف جديد</span></div>
         <input type="hidden" id="editingId">
@@ -376,6 +382,7 @@ img{display:block;max-width:100%}
 
       <div class="card-box">
         <div class="card-box-title"><span class="card-box-title-icon">🎨</span> ثيم الألوان</div>
+        <div class="form-note" style="margin-bottom:12px">📌 الثيم يتغير فوراً في الموقع <strong>وفي لوحة التحكم</strong> عند الحفظ.</div>
         <div class="theme-selector">
           <label class="theme-option" data-theme="luxury">
             <input type="radio" name="theme" value="luxury">
@@ -430,7 +437,7 @@ img{display:block;max-width:100%}
 
       <div class="card-box">
         <div class="card-box-title"><span class="card-box-title-icon">🔄</span> ترتيب الأقسام</div>
-        <div class="form-note" style="margin-bottom:16px">📌 رتبي الأقسام بالأسهم. الترتيب يظهر في الموقع للزبون.</div>
+        <div class="form-note" style="margin-bottom:16px">📌 <strong>اسحبي القسم بإصبعك</strong> أو استخدمي الأسهم لترتيب الأقسام. الترتيب يظهر في الموقع للزبون.</div>
         <div id="categoryOrderList"></div>
         <button class="btn btn-ghost btn-sm" id="resetCategoryOrderBtn" style="margin-top:10px">🔄 إعادة الترتيب الافتراضي</button>
       </div>
@@ -453,24 +460,7 @@ img{display:block;max-width:100%}
     <section class="panel" id="panel-settings">
       <div class="panel-header">
         <h1 class="panel-title"><span class="panel-title-icon">⚙️</span> الإعدادات</h1>
-        <p class="panel-sub">معلومات المحل، الشعار، الأرقام، والعنوان</p>
-      </div>
-
-      <div class="card-box">
-        <div class="card-box-title"><span class="card-box-title-icon">🎨</span> شعار المحل</div>
-        <div class="image-upload">
-          <div class="image-preview" id="logoPreview" style="width:120px;height:120px;border-radius:50%"><div class="image-preview-icon">🎨</div></div>
-          <div class="image-upload-info">
-            <div class="file-input-wrap">
-              <input type="file" class="file-input" id="logoImage" accept="image/*">
-              <div class="file-btn">📁 اختر شعار المحل</div>
-            </div>
-            <div class="form-note">📌 يُضغط تلقائياً ويُرفع. اتركيه فاضي لاستخدام الشعار الافتراضي.</div>
-            <div class="upload-progress" id="logoProgress"><div class="upload-progress-bar" id="logoProgressBar"></div></div>
-            <input type="hidden" id="setLogoUrl">
-            <button class="btn btn-ghost btn-sm" id="removeLogoBtn" style="margin-top:8px;display:none">🗑️ إزالة الشعار</button>
-          </div>
-        </div>
+        <p class="panel-sub">معلومات المحل، الأرقام، والعنوان</p>
       </div>
 
       <div class="card-box">
@@ -597,7 +587,6 @@ const auth = getAuth(app);
 const CLOUD_NAME = "vfdkxutu";
 const UPLOAD_PRESET = "abosalah";
 const CLOUDINARY_FOLDER = "abosalah/menu";
-const LOGO_DEFAULT = "https://res.cloudinary.com/vfdkxutu/image/upload/f_png/abo_salah_logo.ai";
 const ADMIN_EMAIL = "admin@abosalah.com";
 
 const DEFAULT_SETTINGS = {
@@ -617,11 +606,11 @@ const DEFAULT_SETTINGS = {
   deliveryShow: true,
   deliveryOptions: [
     { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵", logoUrl: "" },
+    { name: "يلاجو", url: "https://yellago.com/", icon: "🚀", logoUrl: "" },
     { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱", logoUrl: "" },
     { name: "موفو", url: "https://movo.sy/", icon: "📞", logoUrl: "" }
   ],
   heroImage: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=1600&q=80",
-  logoUrl: LOGO_DEFAULT,
   theme: "luxury",
   menuLayout: "grid",
   categoryOrder: [],
@@ -641,6 +630,7 @@ let categoryOrder = [];
 let listenersActive = false;
 let unsubMenu = null;
 let unsubSettings = null;
+let sortableInstance = null;
 
 const $ = id => document.getElementById(id);
 const fmt = n => Number(n || 0).toLocaleString('en-US');
@@ -652,6 +642,10 @@ function showToast(msg, type = "") {
   t.className = "toast show " + type;
   clearTimeout(t._tid);
   t._tid = setTimeout(() => t.className = "toast " + type, 3000);
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme || "luxury");
 }
 
 /* LOGIN */
@@ -717,21 +711,15 @@ function startListeners() {
       deliveryOptions = [...DEFAULT_SETTINGS.deliveryOptions];
       categoryOrder = [];
     }
-    loadSettingsForm(); loadDesignForm(); renderAdminLogo();
+    // تطبيق الثيم فوراً على لوحة التحكم
+    applyTheme(settings.theme);
+    loadSettingsForm(); loadDesignForm();
   }, err => console.error(err));
 }
 function stopListeners() {
   if (unsubMenu) { unsubMenu(); unsubMenu = null; }
   if (unsubSettings) { unsubSettings(); unsubSettings = null; }
   listenersActive = false;
-}
-
-function renderAdminLogo() {
-  const url = settings.logoUrl || LOGO_DEFAULT;
-  if (url) {
-    $("adminLogoBox").innerHTML = `<img src="${url}" alt="">`;
-    $("loginLogoBox").innerHTML = `<img src="${url}" alt="">`;
-  }
 }
 
 /* TABS */
@@ -777,8 +765,9 @@ function renderCategoryOrderList() {
     return;
   }
   box.innerHTML = cats.map((cat, i) => `
-    <div class="item-row" style="padding:10px 12px;margin-bottom:6px">
-      <span style="font-weight:700;color:var(--primary);min-width:30px">${i + 1}.</span>
+    <div class="item-row" data-cat="${cat}" style="padding:10px 12px;margin-bottom:6px;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y">
+      <span style="font-size:22px;color:var(--primary);margin-left:4px;flex-shrink:0;line-height:1">☰</span>
+      <span class="cat-num" style="font-weight:700;color:var(--primary);min-width:26px;flex-shrink:0">${i + 1}.</span>
       <div class="item-row-info"><div class="item-row-name" style="font-size:15px">${cat}</div></div>
       <div class="item-row-actions">
         <button class="icon-btn edit" data-up="${i}" title="لأعلى" ${i === 0 ? 'disabled' : ''}>⬆️</button>
@@ -787,7 +776,8 @@ function renderCategoryOrderList() {
     </div>
   `).join("");
 
-  box.querySelectorAll("[data-up]").forEach(b => b.onclick = async () => {
+  box.querySelectorAll("[data-up]").forEach(b => b.onclick = async (e) => {
+    e.stopPropagation();
     const i = +b.dataset.up;
     if (i <= 0) return;
     const all = getCategoriesInOrder();
@@ -796,7 +786,8 @@ function renderCategoryOrderList() {
     renderCategoryOrderList();
     await saveCategoryOrder();
   });
-  box.querySelectorAll("[data-down]").forEach(b => b.onclick = async () => {
+  box.querySelectorAll("[data-down]").forEach(b => b.onclick = async (e) => {
+    e.stopPropagation();
     const i = +b.dataset.down;
     const all = getCategoriesInOrder();
     categoryOrder = [...all];
@@ -805,6 +796,27 @@ function renderCategoryOrderList() {
     renderCategoryOrderList();
     await saveCategoryOrder();
   });
+
+  // سحب بالإصبع
+  if (sortableInstance) sortableInstance.destroy();
+  if (window.Sortable) {
+    sortableInstance = new Sortable(box, {
+      animation: 200,
+      ghostClass: 'dragging-ghost',
+      chosenClass: 'dragging-chosen',
+      filter: '.icon-btn',
+      preventOnFilter: false,
+      onEnd: async () => {
+        const newOrder = [...box.querySelectorAll('.item-row')].map(el => el.dataset.cat);
+        categoryOrder = newOrder;
+        await saveCategoryOrder();
+        [...box.querySelectorAll('.item-row')].forEach((el, i) => {
+          const numSpan = el.querySelector('.cat-num');
+          if (numSpan) numSpan.textContent = (i + 1) + '.';
+        });
+      }
+    });
+  }
 }
 
 async function saveCategoryOrder() {
@@ -926,45 +938,6 @@ $("itemImage").addEventListener("change", async e => {
   e.target.value = "";
 });
 
-/* LOGO IMAGE */
-$("logoImage").addEventListener("change", async e => {
-  const file = e.target.files[0];
-  if (!file) return;
-  if (!file.type.startsWith("image/")) return showToast("⚠️ الرجاء اختيار صورة", "error");
-  if (file.size > 5 * 1024 * 1024) return showToast("⚠️ الصورة كبيرة جداً", "error");
-  const prog = $("logoProgress"), bar = $("logoProgressBar");
-  prog.classList.add("show"); bar.style.width = "15%";
-  try {
-    showToast("⏳ جاري ضغط الشعار...");
-    bar.style.width = "35%";
-    const blob = await compressImage(file, 400, 0.9);
-    $("logoPreview").innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="">`;
-    bar.style.width = "55%";
-    showToast("☁️ جاري الرفع...");
-    const url = await uploadImage(blob);
-    bar.style.width = "100%";
-    $("setLogoUrl").value = url;
-    $("logoPreview").innerHTML = `<img src="${url}" alt="">`;
-    $("removeLogoBtn").style.display = "inline-flex";
-    await setDoc(doc(db, "settings", "info"), { logoUrl: url }, { merge: true });
-    showToast("✓ تم رفع وحفظ الشعار", "success");
-    setTimeout(() => { prog.classList.remove("show"); bar.style.width = "0%"; }, 800);
-  } catch (err) {
-    console.error(err); showToast("❌ فشل الرفع", "error");
-    prog.classList.remove("show"); bar.style.width = "0%";
-  }
-  e.target.value = "";
-});
-
-$("removeLogoBtn").onclick = async () => {
-  if (!confirm("إزالة الشعار المخصص والعودة للافتراضي؟")) return;
-  $("setLogoUrl").value = "";
-  $("logoPreview").innerHTML = `<div class="image-preview-icon">🎨</div>`;
-  $("removeLogoBtn").style.display = "none";
-  await setDoc(doc(db, "settings", "info"), { logoUrl: "" }, { merge: true });
-  showToast("✓ تم إزالة الشعار", "success");
-};
-
 /* SAVE ITEM */
 $("saveItemBtn").onclick = async () => {
   const category = $("itemCategory").value.trim();
@@ -1075,10 +1048,22 @@ function loadDesignForm() {
 }
 
 document.querySelectorAll(".theme-option").forEach(opt => {
-  opt.onclick = e => { e.preventDefault(); document.querySelectorAll(".theme-option").forEach(o => o.classList.remove("active")); opt.classList.add("active"); opt.querySelector('input[name="theme"]').checked = true; };
+  opt.onclick = e => {
+    e.preventDefault();
+    document.querySelectorAll(".theme-option").forEach(o => o.classList.remove("active"));
+    opt.classList.add("active");
+    opt.querySelector('input[name="theme"]').checked = true;
+    // معاينة فورية للثيم في لوحة التحكم
+    applyTheme(opt.dataset.theme);
+  };
 });
 document.querySelectorAll(".layout-option").forEach(opt => {
-  opt.onclick = e => { e.preventDefault(); document.querySelectorAll(".layout-option").forEach(o => o.classList.remove("active")); opt.classList.add("active"); opt.querySelector('input[name="menuLayout"]').checked = true; };
+  opt.onclick = e => {
+    e.preventDefault();
+    document.querySelectorAll(".layout-option").forEach(o => o.classList.remove("active"));
+    opt.classList.add("active");
+    opt.querySelector('input[name="menuLayout"]').checked = true;
+  };
 });
 
 $("saveDesignBtn").onclick = async () => {
@@ -1119,10 +1104,6 @@ function loadSettingsForm() {
   $("setMapUrl").value = settings.mapUrl || "";
   $("setDeliveryNote").value = settings.deliveryNote || "";
   $("setDeliveryShow").checked = settings.deliveryShow !== false;
-  const logoUrl = settings.logoUrl || "";
-  $("setLogoUrl").value = logoUrl;
-  if (logoUrl) { $("logoPreview").innerHTML = `<img src="${logoUrl}" alt="">`; $("removeLogoBtn").style.display = "inline-flex"; }
-  else { $("logoPreview").innerHTML = `<div class="image-preview-icon">🎨</div>`; $("removeLogoBtn").style.display = "none"; }
   deliveryOptions = Array.isArray(settings.deliveryOptions) ? [...settings.deliveryOptions] : [];
   categoryOrder = Array.isArray(settings.categoryOrder) ? [...settings.categoryOrder] : [];
   renderDeliveryList();
@@ -1138,7 +1119,7 @@ function renderDeliveryList() {
   box.innerHTML = deliveryOptions.map((o, idx) => `
     <div class="delivery-row" style="flex-direction:column;align-items:stretch;gap:10px">
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-        <div class="image-preview" style="width:50px;height:50px;border-radius:10px;flex-shrink:0" id="delivPreview${idx}">
+        <div class="image-preview" style="width:50px;height:50px;border-radius:10px;flex-shrink:0">
           ${o.logoUrl ? `<img src="${o.logoUrl}" alt="">` : `<span style="font-size:22px">${o.icon || '🛵'}</span>`}
         </div>
         <div class="file-input-wrap" style="flex:1;min-width:120px">
@@ -1184,7 +1165,6 @@ $("saveSettingsBtn").onclick = async () => {
       status: $("setStatus").value.trim() || "مفتوح الآن",
       statusType: $("setStatusType").value,
       heroImage: $("setHeroImage").value.trim(),
-      logoUrl: $("setLogoUrl").value.trim(),
       whatsapp: $("setWhatsapp").value.trim().replace(/\D/g, ''),
       whatsappDisplay: $("setWhatsappDisplay").value.trim(),
       phone: $("setPhone").value.trim().replace(/\D/g, ''),
@@ -1202,6 +1182,9 @@ $("saveSettingsBtn").onclick = async () => {
   } catch (err) { console.error(err); showToast("❌ فشل الحفظ", "error"); }
   finally { btn.disabled = false; btn.textContent = "💾 حفظ جميع الإعدادات"; }
 };
+
+/* تطبيق الثيم فور تحميل الصفحة */
+applyTheme(DEFAULT_SETTINGS.theme);
 </script>
 </body>
 </html>
