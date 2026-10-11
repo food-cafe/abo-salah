@@ -28,8 +28,8 @@ img{display:block;max-width:100%}
 .header.scrolled{background:color-mix(in srgb,var(--bg) 97%,transparent);border-bottom-color:var(--border-strong);box-shadow:var(--shadow)}
 .header-inner{max-width:1300px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.logo{width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--card-1);box-shadow:0 0 0 2px var(--border-strong),0 6px 20px rgba(255,152,0,.3);position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.logo img{width:100%;height:100%;object-fit:contain}
+.logo{width:56px;height:56px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--border-strong),0 6px 20px rgba(255,152,0,.3);position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:transparent}
+.logo img{width:135%;height:135%;object-fit:cover;flex-shrink:0}
 .logo svg{width:30px;height:30px;color:var(--primary)}
 .logo::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--border-strong);animation:logoPulse 3s ease-in-out infinite;pointer-events:none}
 @keyframes logoPulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.08);opacity:.3}}
@@ -56,11 +56,11 @@ img{display:block;max-width:100%}
 .hero-glass::before{top:0}
 .hero-glass::after{bottom:0}
 .hero-ornament{font-size:16px;color:var(--primary);opacity:.8;letter-spacing:10px;margin-bottom:8px}
-.hero-logo-wrap{display:flex;justify-content:center;margin-bottom:14px}
-.hero-logo{width:170px;height:170px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 8px 30px rgba(255,152,0,.5));transition:transform .3s;background:var(--card-1);padding:4px}
-.hero-logo:hover{transform:scale(1.05)}
-.hero-name-fallback{font-family:'Amiri',serif;font-size:48px;font-weight:700;margin-bottom:8px;line-height:1;letter-spacing:1.5px;background:linear-gradient(135deg,var(--primary-2),var(--primary),var(--primary-3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(255,152,0,.3))}
-@media(max-width:640px){.hero-logo{width:140px;height:140px}}
+.hero-logo-wrap{display:flex;justify-content:center;align-items:center;margin:0 auto 16px;width:180px;height:180px;border-radius:50%;overflow:hidden;box-shadow:0 8px 30px rgba(255,152,0,.5);transition:transform .3s}
+.hero-logo-wrap:hover{transform:scale(1.05)}
+.hero-logo{width:135%;height:135%;object-fit:cover;flex-shrink:0}
+@media(max-width:640px){.hero-logo-wrap{width:150px;height:150px}}
+.hero-name-fallback{font-family:'Amiri',serif;font-size:48px;font-weight:700;margin-bottom:8px;line-height:1;letter-spacing:1.5px;background:linear-gradient(135deg,var(--primary-2),var(--primary),var(--primary-3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 14px}
 .hero-divider-line{flex:1;max-width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--primary))}
 .hero-divider-line.r{background:linear-gradient(90deg,var(--primary),transparent)}
@@ -270,8 +270,8 @@ img{display:block;max-width:100%}
 .footer{background:var(--card-1);text-align:center;padding:50px 20px 36px;margin-top:40px;border-top:1px solid var(--border);position:relative}
 .footer::before{content:"";position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent)}
 .footer-ornament{color:var(--primary);opacity:.5;letter-spacing:10px;font-size:11px;margin-bottom:12px}
-.footer-logo-wrap{display:flex;justify-content:center;margin-bottom:12px}
-.footer-logo{width:90px;height:90px;object-fit:contain;border-radius:50%;filter:drop-shadow(0 4px 20px rgba(255,152,0,.3));background:var(--bg-2);padding:3px}
+.footer-logo-wrap{display:flex;justify-content:center;align-items:center;margin:0 auto 12px;width:90px;height:90px;border-radius:50%;overflow:hidden;filter:drop-shadow(0 4px 20px rgba(255,152,0,.3))}
+.footer-logo{width:135%;height:135%;object-fit:cover;flex-shrink:0}
 .footer-name{font-family:'Amiri',serif;font-size:24px;font-weight:700;color:var(--primary);margin-bottom:8px}
 .footer-addr{font-size:13.5px;color:var(--dim);margin-bottom:22px}
 .footer-socials{display:flex;justify-content:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
@@ -287,7 +287,7 @@ img{display:block;max-width:100%}
     <a class="logo-wrap" href="#">
       <div class="logo" id="logoBox">
         <svg id="logoDefault" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 L20 22 L30 8"/><path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/><path d="M20 22 L20 34"/><path d="M14 34 L26 34"/></svg>
-        <img id="logoCustom" style="display:none;width:100%;height:100%;object-fit:contain" alt="أبو صلاح">
+        <img id="logoCustom" style="display:none" alt="أبو صلاح">
       </div>
       <div class="brand-text">
         <div class="brand-name" id="brandName">أبو صلاح</div>
@@ -307,20 +307,11 @@ img{display:block;max-width:100%}
   <div class="hero-pattern"></div>
   <div class="hero-glass">
     <div class="hero-ornament">✦ ✦ ✦</div>
-    <div class="hero-logo-wrap" id="heroLogoWrap">
-      <img class="hero-logo" id="heroLogo" alt="أبو صلاح">
-    </div>
+    <div class="hero-logo-wrap" id="heroLogoWrap"><img class="hero-logo" id="heroLogo" alt="أبو صلاح"></div>
     <h1 class="hero-name-fallback" id="heroNameFallback" style="display:none">أبو صلاح</h1>
-    <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <span class="hero-divider-icon">✦</span>
-      <div class="hero-divider-line r"></div>
-    </div>
+    <div class="hero-divider"><div class="hero-divider-line"></div><span class="hero-divider-icon">✦</span><div class="hero-divider-line r"></div></div>
     <p class="hero-subtitle" id="heroSubtitle">كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق</p>
-    <div class="hero-status" id="heroStatus">
-      <span class="status-dot"></span>
-      <span id="heroStatusText">مفتوح الآن</span>
-    </div>
+    <div class="hero-status" id="heroStatus"><span class="status-dot"></span><span id="heroStatusText">مفتوح الآن</span></div>
     <div class="hero-actions" id="heroActions"></div>
   </div>
 </section>
@@ -333,10 +324,7 @@ img{display:block;max-width:100%}
 </section>
 
 <section class="controls">
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن صنف...">
-  </div>
+  <div class="search-wrap"><span class="search-icon">🔍</span><input type="text" class="search-input" id="searchInput" placeholder="ابحث عن صنف..."></div>
   <div class="categories" id="categories"></div>
 </section>
 
@@ -352,9 +340,7 @@ img{display:block;max-width:100%}
 
 <footer class="footer">
   <div class="footer-ornament">✦ ✦ ✦</div>
-  <div class="footer-logo-wrap" id="footerLogoWrap">
-    <img class="footer-logo" id="footerLogo" alt="أبو صلاح">
-  </div>
+  <div class="footer-logo-wrap" id="footerLogoWrap"><img class="footer-logo" id="footerLogo" alt="أبو صلاح"></div>
   <div class="footer-name" id="footerName" style="display:none">أبو صلاح</div>
   <div class="footer-addr" id="footerAddr">كفرسوسة - دمشق</div>
   <div class="footer-socials" id="footerSocials"></div>
@@ -372,11 +358,7 @@ img{display:block;max-width:100%}
       <div class="modal-badges" id="modalBadges"></div>
       <div class="modal-price-row">
         <div class="modal-price" id="modalPrice"></div>
-        <div class="qty-ctrl">
-          <button class="qty-btn" id="modalQtyMinus">−</button>
-          <span class="qty-val" id="modalQty">1</span>
-          <button class="qty-btn" id="modalQtyPlus">+</button>
-        </div>
+        <div class="qty-ctrl"><button class="qty-btn" id="modalQtyMinus">−</button><span class="qty-val" id="modalQty">1</span><button class="qty-btn" id="modalQtyPlus">+</button></div>
       </div>
       <button class="add-btn" id="modalAddBtn">✦ أضف إلى السلة</button>
     </div>
@@ -385,16 +367,10 @@ img{display:block;max-width:100%}
 
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <aside class="drawer" id="cartDrawer">
-  <div class="drawer-header">
-    <div class="drawer-title">🛒 سلة الطلبات</div>
-    <button class="drawer-close" id="closeCartBtn">✕</button>
-  </div>
+  <div class="drawer-header"><div class="drawer-title">🛒 سلة الطلبات</div><button class="drawer-close" id="closeCartBtn">✕</button></div>
   <div class="drawer-body" id="cartBody"></div>
   <div class="drawer-footer" id="cartFooter" style="display:none">
-    <div class="cart-total">
-      <span class="cart-total-label">المجموع</span>
-      <span class="cart-total-val"><span id="cartTotal">0</span> <small>ل.س</small></span>
-    </div>
+    <div class="cart-total"><span class="cart-total-label">المجموع</span><span class="cart-total-val"><span id="cartTotal">0</span> <small>ل.س</small></span></div>
     <button class="checkout-btn" id="checkoutBtn">✦ إتمام الطلب</button>
   </div>
 </aside>
@@ -406,22 +382,10 @@ img{display:block;max-width:100%}
       <div class="hero-ornament" style="font-size:15px;letter-spacing:8px;margin-bottom:8px">✦ ✦ ✦</div>
       <h2 class="modal-title" style="text-align:center;margin-bottom:12px">بيانات الطلب</h2>
       <p class="form-note" style="text-align:center;margin-bottom:20px">املأ بياناتك وسيتم إرسال الطلب مباشرة للمحل</p>
-      <div class="form-group">
-        <label class="form-label">الاسم <span class="req">*</span></label>
-        <input type="text" class="form-input" id="custName" placeholder="اسمك الكريم">
-      </div>
-      <div class="form-group">
-        <label class="form-label">رقم الهاتف <span class="req">*</span></label>
-        <input type="tel" class="form-input" id="custPhone" placeholder="09xxxxxxxx">
-      </div>
-      <div class="form-group">
-        <label class="form-label">العنوان <span class="req">*</span></label>
-        <input type="text" class="form-input" id="custAddr" placeholder="المنطقة، الشارع، رقم البناء">
-      </div>
-      <div class="form-group">
-        <label class="form-label">ملاحظات (اختياري)</label>
-        <textarea class="form-textarea" id="custNotes" placeholder="أي ملاحظات إضافية..."></textarea>
-      </div>
+      <div class="form-group"><label class="form-label">الاسم <span class="req">*</span></label><input type="text" class="form-input" id="custName" placeholder="اسمك الكريم"></div>
+      <div class="form-group"><label class="form-label">رقم الهاتف <span class="req">*</span></label><input type="tel" class="form-input" id="custPhone" placeholder="09xxxxxxxx"></div>
+      <div class="form-group"><label class="form-label">العنوان <span class="req">*</span></label><input type="text" class="form-input" id="custAddr" placeholder="المنطقة، الشارع، رقم البناء"></div>
+      <div class="form-group"><label class="form-label">ملاحظات (اختياري)</label><textarea class="form-textarea" id="custNotes" placeholder="أي ملاحظات إضافية..."></textarea></div>
       <button class="send-order-btn" id="sendOrderBtn">📱 إرسال الطلب</button>
     </div>
   </div>
@@ -473,6 +437,7 @@ const DEFAULT_SETTINGS = {
   deliveryShow: true,
   deliveryOptions: [
     { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵", logoUrl: "" },
+    { name: "يلاجو", url: "https://yellago.com/", icon: "🚀", logoUrl: "" },
     { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱", logoUrl: "" },
     { name: "موفو", url: "https://movo.sy/", icon: "📞", logoUrl: "" }
   ],
@@ -518,22 +483,18 @@ function applyTheme(theme) {
 
 function renderLogo() {
   const url = settings.logoUrl || LOGO_DEFAULT;
-  const custom = $("logoCustom");
-  const def = $("logoDefault");
-  const heroImg = $("heroLogo");
-  const footImg = $("footerLogo");
   if (url) {
-    if (custom) { custom.src = url; custom.style.display = "block"; }
-    if (def) def.style.display = "none";
-    if (heroImg) heroImg.src = url;
-    if (footImg) footImg.src = url;
+    $("logoCustom").src = url; $("logoCustom").style.display = "block";
+    $("logoDefault").style.display = "none";
+    $("heroLogo").src = url;
+    $("footerLogo").src = url;
     $("heroLogoWrap").style.display = "flex";
     $("heroNameFallback").style.display = "none";
     $("footerLogoWrap").style.display = "flex";
     $("footerName").style.display = "none";
   } else {
-    if (custom) custom.style.display = "none";
-    if (def) def.style.display = "block";
+    $("logoCustom").style.display = "none";
+    $("logoDefault").style.display = "block";
     $("heroLogoWrap").style.display = "none";
     $("heroNameFallback").style.display = "block";
     $("footerLogoWrap").style.display = "none";
@@ -556,7 +517,6 @@ function renderSettings() {
   $("heroStatusText").textContent = settings.status || "مفتوح الآن";
 
   if (settings.heroImage) $("heroBg").style.backgroundImage = `url('${settings.heroImage}')`;
-
   renderLogo();
 
   const wa = settings.whatsapp ? `https://wa.me/${settings.whatsapp}` : "#";
@@ -570,9 +530,7 @@ function renderSettings() {
     $("deliverySection").style.display = "block";
     $("deliveryTitle").textContent = settings.deliveryNote || "خيارات التوصيل";
     $("deliveryOptions").innerHTML = settings.deliveryOptions.map(o => {
-      const iconHtml = o.logoUrl
-        ? `<img src="${o.logoUrl}" class="delivery-opt-logo" alt="">`
-        : `<span class="delivery-opt-icon">${o.icon || '🛵'}</span>`;
+      const iconHtml = o.logoUrl ? `<img src="${o.logoUrl}" class="delivery-opt-logo" alt="">` : `<span class="delivery-opt-icon">${o.icon || '🛵'}</span>`;
       return `<a class="delivery-opt" href="${o.url || '#'}" target="_blank" rel="noopener">${iconHtml}<span>${o.name || ''}</span></a>`;
     }).join("");
   } else {
@@ -596,15 +554,9 @@ function getCategoriesInOrder() {
 
 function renderCategories() {
   const cats = ["الكل", ...getCategoriesInOrder()];
-  $("categories").innerHTML = cats.map(c =>
-    `<button class="cat-btn ${c === activeCategory ? 'active' : ''}" data-cat="${c}">${c}</button>`
-  ).join("");
+  $("categories").innerHTML = cats.map(c => `<button class="cat-btn ${c === activeCategory ? 'active' : ''}" data-cat="${c}">${c}</button>`).join("");
   document.querySelectorAll(".cat-btn").forEach(btn => {
-    btn.onclick = () => {
-      activeCategory = btn.dataset.cat;
-      renderCategories();
-      renderMenu();
-    };
+    btn.onclick = () => { activeCategory = btn.dataset.cat; renderCategories(); renderMenu(); };
   });
 }
 
@@ -652,10 +604,7 @@ function buildCardHtml(item, layout) {
       <div class="card-desc">${item.description || '&nbsp;'}</div>
       ${showPrep ? `<div class="card-meta">🕐 يجهز خلال ${item.prepTime} دقيقة</div>` : ''}
       <div class="card-footer">
-        <div class="card-price">
-          ${isOffer ? `<span class="card-price-old">${fmt(item.price)}</span>` : ''}
-          <span class="card-price-val">${fmt(price)} <small>ل.س</small></span>
-        </div>
+        <div class="card-price">${isOffer ? `<span class="card-price-old">${fmt(item.price)}</span>` : ''}<span class="card-price-val">${fmt(price)} <small>ل.س</small></span></div>
         <button class="card-add" data-add="${item.id}">+</button>
       </div>
     </div>
@@ -708,12 +657,8 @@ function renderMenu() {
     const regularItems = filtered.filter(i => !(i.isPopular && settings.showPopular) && !(i.isOffer && settings.showOffers));
     let html = "";
 
-    if (popularItems.length) {
-      html += `<div class="special-section"><div class="special-heading"><span class="special-icon">⭐</span><h3 class="special-title">الأكثر طلباً</h3></div><div class="menu-grid">${popularItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
-    }
-    if (offerItems.length) {
-      html += `<div class="special-section"><div class="special-heading"><span class="special-icon">🔥</span><h3 class="special-title">عروض اليوم</h3></div><div class="menu-grid">${offerItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
-    }
+    if (popularItems.length) html += `<div class="special-section"><div class="special-heading"><span class="special-icon">⭐</span><h3 class="special-title">الأكثر طلباً</h3></div><div class="menu-grid">${popularItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
+    if (offerItems.length) html += `<div class="special-section"><div class="special-heading"><span class="special-icon">🔥</span><h3 class="special-title">عروض اليوم</h3></div><div class="menu-grid">${offerItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
     if (regularItems.length) {
       if (layout === "sections") {
         const grouped = {};
@@ -728,16 +673,13 @@ function renderMenu() {
     }
     container.innerHTML = html;
   } else {
-    if (layout === "list") {
-      container.innerHTML = `<div class="menu-list">${filtered.map(i => buildCardHtml(i, "list")).join("")}</div>`;
-    } else if (layout === "sections") {
+    if (layout === "list") container.innerHTML = `<div class="menu-list">${filtered.map(i => buildCardHtml(i, "list")).join("")}</div>`;
+    else if (layout === "sections") {
       const grouped = {};
       filtered.forEach(i => { const c = i.category || "أخرى"; if (!grouped[c]) grouped[c] = []; grouped[c].push(i); });
       const sortedCats = sortCats(Object.keys(grouped));
       container.innerHTML = sortedCats.map(cat => `<div class="special-section"><div class="special-heading"><h3 class="special-title">${cat}</h3></div><div class="menu-grid">${grouped[cat].map(i => buildCardHtml(i, "grid")).join("")}</div></div>`).join("");
-    } else {
-      container.innerHTML = `<div class="menu-grid">${filtered.map(i => buildCardHtml(i, "grid")).join("")}</div>`;
-    }
+    } else container.innerHTML = `<div class="menu-grid">${filtered.map(i => buildCardHtml(i, "grid")).join("")}</div>`;
   }
   attachCardEvents(container);
 }
@@ -784,8 +726,7 @@ function updateQty(id, delta) {
   const item = cart.find(c => c.id === id);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) removeFromCart(id);
-  else updateCartUI();
+  if (item.qty <= 0) removeFromCart(id); else updateCartUI();
 }
 function cartTotal() { return cart.reduce((s, c) => s + (Number(c.price) || 0) * c.qty, 0); }
 function updateCartUI() {
@@ -872,10 +813,8 @@ window.addEventListener("scroll", () => { $("header").classList.toggle("scrolled
 
 function listenMenu() {
   onSnapshot(doc(db, "menu", "all"), snap => {
-    if (snap.exists()) {
-      const data = snap.data();
-      allItems = Array.isArray(data.items) ? data.items : [];
-    } else allItems = [];
+    if (snap.exists()) { const data = snap.data(); allItems = Array.isArray(data.items) ? data.items : []; }
+    else allItems = [];
     renderCategories(); renderMenu();
   }, err => { console.error(err); allItems = []; renderMenu(); });
 }
