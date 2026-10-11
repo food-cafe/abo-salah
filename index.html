@@ -437,9 +437,8 @@ const DEFAULT_SETTINGS = {
   deliveryShow: true,
   deliveryOptions: [
     { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵", logoUrl: "" },
-    { name: "يلاجو", url: "https://yellago.com/", icon: "🚀", logoUrl: "" },
-    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱", logoUrl: "" },
-    { name: "موفو", url: "https://movo.sy/", icon: "📞", logoUrl: "" }
+    { name: "يلا جو", url: "https://delivery.yallago.net/ar/damascus/vendor/673", icon: "🚀", logoUrl: "" },
+    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱", logoUrl: "" }
   ],
   heroImage: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=1600&q=80",
   logoUrl: LOGO_DEFAULT,
@@ -560,13 +559,34 @@ function renderCategories() {
   });
 }
 
+function sortCats(arr) {
+  const order = Array.isArray(settings.categoryOrder) ? settings.categoryOrder : [];
+  return arr.sort((a, b) => {
+    const ai = order.indexOf(a), bi = order.indexOf(b);
+    if (ai === -1 && bi === -1) return a.localeCompare(b, 'ar');
+    if (ai === -1) return 1;
+    if (bi === -1) return -1;
+    return ai - bi;
+  });
+}
+
 function applyFilters() {
   const q = searchQuery.trim().toLowerCase();
-  return allItems.filter(i => {
-    if (activeCategory !== "الكل" && i.category !== activeCategory) return false;
-    if (!q) return true;
-    return (i.name || "").toLowerCase().includes(q) || (i.description || "").toLowerCase().includes(q);
-  });
+  return allItems
+    .filter(i => {
+      if (activeCategory !== "الكل" && i.category !== activeCategory) return false;
+      if (!q) return true;
+      return (i.name || "").toLowerCase().includes(q) || (i.description || "").toLowerCase().includes(q);
+    })
+    .sort((a, b) => {
+      const order = Array.isArray(settings.categoryOrder) ? settings.categoryOrder : [];
+      const ai = order.indexOf(a.category);
+      const bi = order.indexOf(b.category);
+      if (ai === -1 && bi === -1) return (a.category || '').localeCompare(b.category || '', 'ar');
+      if (ai === -1) return 1;
+      if (bi === -1) return -1;
+      return ai - bi;
+    });
 }
 
 function buildCardHtml(item, layout) {
@@ -627,17 +647,6 @@ function attachCardEvents(container) {
   });
 }
 
-function sortCats(arr) {
-  const order = Array.isArray(settings.categoryOrder) ? settings.categoryOrder : [];
-  return arr.sort((a, b) => {
-    const ai = order.indexOf(a), bi = order.indexOf(b);
-    if (ai === -1 && bi === -1) return a.localeCompare(b, 'ar');
-    if (ai === -1) return 1;
-    if (bi === -1) return -1;
-    return ai - bi;
-  });
-}
-
 function renderMenu() {
   const container = $("menuContainer");
   const filtered = applyFilters();
@@ -659,6 +668,7 @@ function renderMenu() {
 
     if (popularItems.length) html += `<div class="special-section"><div class="special-heading"><span class="special-icon">⭐</span><h3 class="special-title">الأكثر طلباً</h3></div><div class="menu-grid">${popularItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
     if (offerItems.length) html += `<div class="special-section"><div class="special-heading"><span class="special-icon">🔥</span><h3 class="special-title">عروض اليوم</h3></div><div class="menu-grid">${offerItems.map(i => buildCardHtml(i, "grid")).join("")}</div></div>`;
+
     if (regularItems.length) {
       if (layout === "sections") {
         const grouped = {};
@@ -668,7 +678,18 @@ function renderMenu() {
       } else if (layout === "list") {
         html += `<div class="menu-list">${regularItems.map(i => buildCardHtml(i, "list")).join("")}</div>`;
       } else {
-        html += `<div class="menu-grid">${regularItems.map(i => buildCardHtml(i, "grid")).join("")}</div>`;
+        // ✅ تعديل جديد: في وضع الشبكة، نعرض المجموعات حسب القسم
+        const grouped = {};
+        regularItems.forEach(i => { const c = i.category || "أخرى"; if (!grouped[c]) grouped[c] = []; grouped[c].push(i); });
+        const sortedCats = sortCats(Object.keys(grouped));
+        html += sortedCats.map(cat => `
+          <div class="special-section" style="margin-bottom:30px">
+            <div class="special-heading" style="margin-bottom:14px">
+              <h3 class="special-title" style="font-size:20px">${cat}</h3>
+            </div>
+            <div class="menu-grid">${grouped[cat].map(i => buildCardHtml(i, "grid")).join("")}</div>
+          </div>
+        `).join("");
       }
     }
     container.innerHTML = html;
@@ -825,7 +846,9 @@ function listenSettings() {
       settings = { ...DEFAULT_SETTINGS, ...snap.data() };
       if (!Array.isArray(settings.deliveryOptions) || !settings.deliveryOptions.length) settings.deliveryOptions = DEFAULT_SETTINGS.deliveryOptions;
     }
-    renderSettings(); renderMenu();
+    renderSettings();
+    renderCategories();  // ← التعديل المهم
+    renderMenu();
   }, err => { console.error(err); renderSettings(); });
 }
 
