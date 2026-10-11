@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ترحيل البيانات | أبو صلاح</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A2E36;--bg2:#0E3A44;--primary:#FF9800;--primary2:#FFB74D;--accent:#4DD0E1;--hot:#E91E63;--text:#F5F0E1;--dim:#A8C5CC}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Tajawal',sans-serif;background:linear-gradient(135deg,var(--bg),var(--bg2));min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;color:var(--text);line-height:1.7}
+.card{background:linear-gradient(160deg,rgba(14,58,68,.95),rgba(10,46,54,.95));border-radius:28px;padding:36px 28px;max-width:600px;width:100%;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 0 1px rgba(255,152,0,.3);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--primary),var(--hot),var(--primary),var(--accent))}
+.icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center;font-size:38px;margin:0 auto 18px;box-shadow:0 8px 30px rgba(255,152,0,.4)}
+h1{text-align:center;font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--primary2);margin-bottom:8px}
+.sub{text-align:center;font-size:13.5px;color:var(--dim);margin-bottom:22px}
+.info-box{background:rgba(77,208,225,.08);border:1px solid rgba(77,208,225,.3);border-radius:14px;padding:16px 18px;margin-bottom:18px;font-size:13px;line-height:1.8}
+.info-box-title{font-size:14px;font-weight:800;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.info-list{list-style:none}
+.info-list li{padding:5px 0;display:flex;align-items:center;gap:8px;font-weight:600}
+.info-list li::before{content:"✓";color:var(--primary);font-weight:900}
+.warn-box{background:rgba(233,30,99,.1);border:1.5px solid var(--hot);border-radius:14px;padding:14px 16px;margin-bottom:20px;font-size:13px;font-weight:600;line-height:1.7}
+.warn-box strong{color:var(--hot)}
+.btn{width:100%;padding:16px;border-radius:50px;font-family:inherit;font-size:16px;font-weight:900;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .3s;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,152,0,.5)}
+.btn-primary:disabled{opacity:.5;pointer-events:none}
+.btn-danger{background:linear-gradient(135deg,#7A2828,var(--hot));color:#fff}
+.progress{height:8px;border-radius:4px;background:rgba(10,46,54,.8);overflow:hidden;margin-top:16px;display:none}
+.progress.show{display:block}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--primary));transition:width .3s;border-radius:4px}
+.status{text-align:center;font-size:13.5px;font-weight:700;color:var(--dim);margin-top:14px;min-height:20px}
+.status.success{color:#7CFC00}
+.status.error{color:var(--hot)}
+.result-box{margin-top:20px;padding:18px;border-radius:14px;background:rgba(77,208,225,.08);border:1.5px solid var(--accent);display:none}
+.result-box.show{display:block}
+.result-title{font-size:16px;font-weight:900;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.result-text{font-size:13.5px;line-height:1.8}
+.links{margin-top:20px;padding-top:20px;border-top:1.5px dashed rgba(255,152,0,.3);display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.link{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;border-radius:50px;background:rgba(77,208,225,.1);color:var(--accent);text-decoration:none;font-size:13.5px;font-weight:800;border:1.5px solid rgba(77,208,225,.4);transition:all .2s}
+.link:hover{background:var(--accent);color:var(--bg)}
+.danger-zone{margin-top:24px;padding-top:20px;border-top:1.5px solid rgba(233,30,99,.2)}
+.danger-title{font-size:12px;font-weight:800;color:var(--hot);margin-bottom:10px;text-align:center;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="icon">🚀</div>
+  <h1>ترحيل بيانات أبو صلاح</h1>
+  <p class="sub">سكربت لمرة واحدة — 86 صنف</p>
+
+  <div class="info-box">
+    <div class="info-box-title">📦 البيانات اللي رح تترحل</div>
+    <ul class="info-list">
+      <li>86 صنف مع أسعارها الحقيقية</li>
+      <li>10 أقسام: عصائر، إمبراطور، كوكتيلات، آيس كريم، سلطات، وافل، بان كيك، ميني بان كيك، مليك شيك، كريب</li>
+      <li>صور افتراضية من Unsplash متناسبة مع كل صنف</li>
+      <li>إعدادات المحل كاملة (اسم، أرقام، عنوان)</li>
+      <li>3 ثيمات جاهزة (الفخم، المشرق، الصيفي)</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    ⚠️ <strong>تنبيه:</strong> هذا السكربت بيستبدل أي بيانات موجودة حالياً في قاعدة البيانات. شغّليه مرة وحدة، وبعدها احذفي الملف.
+  </div>
+
+  <button class="btn btn-primary" id="migrateBtn">🚀 رحّل البيانات الآن</button>
+
+  <div class="progress" id="progress"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="status" id="status"></div>
+
+  <div class="result-box" id="resultBox">
+    <div class="result-title">✅ تم الترحيل بنجاح!</div>
+    <div class="result-text" id="resultText"></div>
+    <div class="links">
+      <a href="index.html" class="link">👁️ عرض الموقع</a>
+      <a href="admin.html" class="link">⚙️ لوحة التحكم</a>
+    </div>
+  </div>
+
+  <div class="danger-zone" id="dangerZone" style="display:none">
+    <div class="danger-title">⚠️ منطقة الخطر</div>
+    <button class="btn btn-danger" id="clearBtn" style="padding:12px;font-size:14px">🗑️ حذف جميع البيانات</button>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD92e43exJdSnwB3N8Cl5I1ro3pr1H8x8s",
+  authDomain: "salah-e00b1.firebaseapp.com",
+  projectId: "salah-e00b1",
+  storageBucket: "salah-e00b1.firebasestorage.app",
+  messagingSenderId: "975779690045",
+  appId: "1:975779690045:web:daa61b120aa146b7bd9c54"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const $ = id => document.getElementById(id);
+const genId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+
+// صور Unsplash مناسبة لكل صنف
+const IMG = {
+  straw: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=600&q=80",
+  berry: "https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=600&q=80",
+  orange: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=600&q=80",
+  lemon: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=600&q=80",
+  mixed: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80",
+  mango: "https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80",
+  pineapple: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=600&q=80",
+  banana: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&q=80",
+  avoc: "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=600&q=80",
+  emperor: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=600&q=80",
+  cockt: "https://images.unsplash.com/photo-1546171753-97d7676e4602?w=600&q=80",
+  ice: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=600&q=80",
+  salad: "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=600&q=80",
+  nutella: "https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?w=600&q=80",
+  gofer: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=600&q=80",
+  pancake: "https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=600&q=80",
+  minipan: "https://images.unsplash.com/photo-1587241321921-91a834d6d191?w=600&q=80",
+  shake: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&q=80",
+  crepe: "https://images.unsplash.com/photo-1519676867240-f03562e64548?w=600&q=80"
+};
+
+const ITEMS = [
+  // ===== عصائر طازجة (16) =====
+  {cat:"عصائر طازجة", name:"فريز", price:200, desc:"عصير فراولة طازج 100%", img:IMG.straw},
+  {cat:"عصائر طازجة", name:"توت", price:250, desc:"عصير توت طازج", img:IMG.berry},
+  {cat:"عصائر طازجة", name:"برتقال", price:200, desc:"عصير برتقال طبيعي", img:IMG.orange},
+  {cat:"عصائر طازجة", name:"ليمون", price:200, desc:"عصير ليمون منعش", img:IMG.lemon},
+  {cat:"عصائر طازجة", name:"بولو", price:200, desc:"عصير بولو منعش", img:IMG.mixed},
+  {cat:"عصائر طازجة", name:"فواكه", price:200, desc:"عصير فواكه مشكلة", img:IMG.mixed},
+  {cat:"عصائر طازجة", name:"منغا", price:250, desc:"عصير مانجو استوائي", img:IMG.mango},
+  {cat:"عصائر طازجة", name:"توت وفريز", price:250, desc:"خليط توت وفراولة", img:IMG.berry},
+  {cat:"عصائر طازجة", name:"فريز وموز", price:200, desc:"خليط فراولة وموز", img:IMG.straw},
+  {cat:"عصائر طازجة", name:"فواكه مع منغا", price:250, desc:"فواكه مشكلة مع مانجو", img:IMG.mango},
+  {cat:"عصائر طازجة", name:"منغا حبيبات", price:250, desc:"عصير مانجو مع قطع فواكه", img:IMG.mango},
+  {cat:"عصائر طازجة", name:"استوائي", price:250, desc:"عصير استوائي منعش", img:IMG.pineapple},
+  {cat:"عصائر طازجة", name:"اناناس", price:250, desc:"عصير أناناس طازج", img:IMG.pineapple},
+  {cat:"عصائر طازجة", name:"منغا وبرتقال", price:250, desc:"خليط مانجو وبرتقال", img:IMG.orange},
+  {cat:"عصائر طازجة", name:"برتقال وليمون", price:200, desc:"خليط برتقال وليمون", img:IMG.lemon},
+  {cat:"عصائر طازجة", name:"فريز وليمون", price:200, desc:"خليط فراولة وليمون", img:IMG.straw},
+
+  // ===== الإمبراطور (5) =====
+  {cat:"الإمبراطور", name:"إمبراطور موز وحليب", price:350, desc:"مشروب إمبراطور بالموز والحليب", img:IMG.emperor},
+  {cat:"الإمبراطور", name:"إمبراطور نوتيلا", price:350, desc:"إمبراطور بالنوتيلا الفاخرة", img:IMG.nutella},
+  {cat:"الإمبراطور", name:"إمبراطور سبيشل", price:350, desc:"إمبراطور خاص من اختيارنا", img:IMG.emperor},
+  {cat:"الإمبراطور", name:"إمبراطور مكسرات", price:400, desc:"إمبراطور بالمكسرات الفاخرة", img:IMG.emperor},
+  {cat:"الإمبراطور", name:"إمبراطور أفوكادو", price:450, desc:"إمبراطور بالأفوكادو الكريمي", img:IMG.avoc},
+
+  // ===== كوكتيلات (5) =====
+  {cat:"كوكتيلات", name:"موز وحليب", price:200, desc:"كوكتيل الموز بالحليب الطازج", img:IMG.banana},
+  {cat:"كوكتيلات", name:"موز وحليب وفريز", price:200, desc:"خليط الموز والفراولة والحليب", img:IMG.cockt},
+  {cat:"كوكتيلات", name:"موز وحليب وشوكولا", price:200, desc:"كوكتيل الموز بالشوكولا", img:IMG.cockt},
+  {cat:"كوكتيلات", name:"موز وحليب وأفوكادو", price:350, desc:"كوكتيل كريمي بالأفوكادو والموز", img:IMG.avoc},
+  {cat:"كوكتيلات", name:"موز وحليب وقشطة", price:300, desc:"كوكتيل الموز بالقشطة الطازجة", img:IMG.cockt},
+
+  // ===== آيس كريم (4) =====
+  {cat:"آيس كريم", name:"كاسة بوظة مشكلة", price:250, desc:"كاسة بوظة بمجموعة نكهات", img:IMG.ice},
+  {cat:"آيس كريم", name:"شوكولا مو", price:250, desc:"آيس كريم شوكولا فاخر", img:IMG.ice},
+  {cat:"آيس كريم", name:"تويت فروتي", price:250, desc:"آيس كريم بنكهة الفواكه", img:IMG.ice},
+  {cat:"آيس كريم", name:"أرمادا", price:450, desc:"طبق آيس كريم أرمادا الخاص", img:IMG.ice},
+
+  // ===== سلطات فواكه (9) =====
+  {cat:"سلطات فواكه", name:"سلطة فواكه", price:450, desc:"طبق فواكه طازجة مشكلة", img:IMG.salad},
+  {cat:"سلطات فواكه", name:"سلطة نوتيلا", price:450, desc:"فواكه طازجة مع صوص النوتيلا", img:IMG.nutella},
+  {cat:"سلطات فواكه", name:"سلطة نوتيلا بالمكسرات", price:500, desc:"سلطة نوتيلا مع المكسرات الفاخرة", img:IMG.nutella},
+  {cat:"سلطات فواكه", name:"سلطة كرانش", price:450, desc:"سلطة فواكه مع الكرانش المقرمش", img:IMG.salad},
+  {cat:"سلطات فواكه", name:"سلطة باور", price:500, desc:"سلطة الطاقة بالفواكه والمكسرات", img:IMG.salad},
+  {cat:"سلطات فواكه", name:"سلطة نوتيلا مع البراونيز", price:500, desc:"نوتيلا مع البراونيز والفواكه", img:IMG.nutella},
+  {cat:"سلطات فواكه", name:"سلطة لوتس", price:500, desc:"فواكه مع صوص اللوتس الشهير", img:IMG.salad},
+  {cat:"سلطات فواكه", name:"سلطة أوريو", price:450, desc:"فواكه مع قطع الأوريو", img:IMG.salad},
+  {cat:"سلطات فواكه", name:"سلطة قشاطي إكسترا", price:550, desc:"سلطة قشطة فاخرة بالفواكه", img:IMG.salad},
+
+  // ===== وافل وغوفر (10) =====
+  {cat:"وافل وغوفر", name:"غوفر شوكولا", price:200, desc:"وافل غوفر بصوص الشوكولا", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا وموز", price:250, desc:"غوفر شوكولا مع شرائح الموز", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا وموز وفواكه", price:300, desc:"غوفر كامل بالشوكولا والموز والفواكه", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا وفواكه", price:250, desc:"غوفر شوكولا مع فواكه طازجة", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر كراميل وموز", price:250, desc:"غوفر بالكراميل والموز", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا كرسب", price:250, desc:"غوفر شوكولا كرسب", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا كرانش", price:200, desc:"غوفر شوكولا بالكرانش", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا نوتيلا", price:200, desc:"غوفر شوكولا ونوتيلا", img:IMG.nutella},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا لوتس", price:200, desc:"غوفر شوكولا بصوص اللوتس", img:IMG.gofer},
+  {cat:"وافل وغوفر", name:"غوفر شوكولا فواكه طازجة", price:150, desc:"غوفر شوكولا مع فواكه طازجة", img:IMG.gofer},
+
+  // ===== بان كيك (12) =====
+  {cat:"بان كيك", name:"بان كيك صوص شوكولا", price:500, desc:"بان كيك بصوص الشوكولا الفاخر", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك صوص لوتس", price:700, desc:"بان كيك بصوص اللوتس", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك عسل صوص شوكولا", price:500, desc:"بان كيك بالعسل والشوكولا", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك عسل مع لوتس", price:300, desc:"بان كيك بالعسل واللوتس", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك عسل مع فواكه", price:300, desc:"بان كيك بالعسل والفواكه الطازجة", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك عسل مع موز", price:300, desc:"بان كيك بالعسل والموز", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك عسل", price:300, desc:"بان كيك بالعسل الطبيعي", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك صوص نوتيلا", price:250, desc:"بان كيك بصوص النوتيلا", img:IMG.nutella},
+  {cat:"بان كيك", name:"بان كيك صوص شوكولا مع فواكه", price:250, desc:"بان كيك شوكولا مع فواكه", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك فواكه", price:250, desc:"بان كيك مع فواكه طازجة", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك صوص شوكولا مع موز", price:300, desc:"بان كيك شوكولا وموز", img:IMG.pancake},
+  {cat:"بان كيك", name:"بان كيك صوص شوكولا مع لوتس", price:500, desc:"بان كيك بالشوكولا واللوتس", img:IMG.pancake},
+
+  // ===== ميني بان كيك (8) =====
+  {cat:"ميني بان كيك", name:"مني بان كيك شوكولا", price:150, desc:"ميني بان كيك بصوص الشوكولا", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك بوع مع شوكولا", price:200, desc:"ميني بان كيك بوع مع شوكولا", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك نوتيلا", price:200, desc:"ميني بان كيك بالنوتيلا", img:IMG.nutella},
+  {cat:"ميني بان كيك", name:"مني بان كيك قشطة مع شوكولا", price:200, desc:"ميني بان كيك قشطة وشوكولا", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك عسل", price:200, desc:"ميني بان كيك بالعسل", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك كرز مع شوكولا", price:200, desc:"ميني بان كيك كرز وشوكولا", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك كرز وفواكه", price:200, desc:"ميني بان كيك كرز وفواكه", img:IMG.minipan},
+  {cat:"ميني بان كيك", name:"مني بان كيك لوتس", price:200, desc:"ميني بان كيك بصوص اللوتس", img:IMG.minipan},
+
+  // ===== مليك شيك (8) =====
+  {cat:"مليك شيك", name:"مليك شيك شوكولا", price:250, desc:"مليك شيك الشوكولا الفاخر", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك فريز", price:250, desc:"مليك شيك الفراولة المنعش", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك فانيلا", price:250, desc:"مليك شيك الفانيلا الكلاسيكي", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك أوريو", price:250, desc:"مليك شيك بالأوريو", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك لوتس", price:250, desc:"مليك شيك بصوص اللوتس", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك براونيز", price:250, desc:"مليك شيك بالبراونيز", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك فواكه", price:250, desc:"مليك شيك بالفواكه الطازجة", img:IMG.shake},
+  {cat:"مليك شيك", name:"مليك شيك كرسب", price:250, desc:"مليك شيك بالكرسب المقرمش", img:IMG.shake},
+
+  // ===== كريب (9) =====
+  {cat:"كريب", name:"كريب نوتيلا", price:550, desc:"كريب بصوص النوتيلا الفاخرة", img:IMG.crepe},
+  {cat:"كريب", name:"كريب لوتس", price:500, desc:"كريب بصوص اللوتس الشهير", img:IMG.crepe},
+  {cat:"كريب", name:"كريب فواكه", price:500, desc:"كريب محشو بالفواكه الطازجة", img:IMG.crepe},
+  {cat:"كريب", name:"كريب شوكولا", price:350, desc:"كريب بصوص الشوكولا", img:IMG.crepe},
+  {cat:"كريب", name:"كريب كرانش", price:500, desc:"كريب بالكرانش المقرمش", img:IMG.crepe},
+  {cat:"كريب", name:"كريب بيويت", price:350, desc:"كريب بيويت الخاص", img:IMG.crepe},
+  {cat:"كريب", name:"كريب شوكولا بالمكسرات", price:400, desc:"كريب شوكولا مع المكسرات", img:IMG.crepe},
+  {cat:"كريب", name:"كريب كرانش كراميل", price:600, desc:"كريب كرانش بالكراميل", img:IMG.crepe},
+  {cat:"كريب", name:"كريب نوتيلا موز", price:350, desc:"كريب نوتيلا مع الموز", img:IMG.crepe}
+];
+
+const SETTINGS = {
+  name: "أبو صلاح",
+  subtitle: "كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق",
+  status: "مفتوح الآن",
+  statusType: "open",
+  whatsapp: "963982699556",
+  whatsappDisplay: "0982699556",
+  phone: "963112158109",
+  phoneDisplay: "011-215-8109",
+  phone2: "",
+  phone2Display: "",
+  address: "كفرسوسة - حديقة التخطيط - مقابل البرجيات - دمشق",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=فواكه+أبو+صلاح+كفرسوسة+دمشق",
+  deliveryNote: "خيارات التوصيل",
+  deliveryShow: true,
+  deliveryOptions: [
+    { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵" },
+    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱" },
+    { name: "موفو", url: "https://movo.sy/", icon: "📞" }
+  ],
+  heroImage: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=1600&q=80",
+  theme: "luxury",
+  menuLayout: "grid",
+  showPopular: true,
+  showOffers: true,
+  showPrepTime: true,
+  showCallButton: true,
+  confirmOrder: true
+};
+
+function setStatus(msg, type = "") {
+  const el = $("status");
+  el.textContent = msg;
+  el.className = "status " + type;
+}
+function setProgress(p) {
+  const prog = $("progress"), bar = $("progressBar");
+  if (p > 0) prog.classList.add("show");
+  bar.style.width = p + "%";
+}
+
+$("migrateBtn").onclick = async () => {
+  if (!confirm("هل أنت متأكد؟ سيتم استبدال البيانات الحالية.")) return;
+  const btn = $("migrateBtn");
+  btn.disabled = true;
+  btn.textContent = "⏳ جاري الترحيل...";
+
+  try {
+    setProgress(20);
+    setStatus("📦 تجهيز الأصناف...");
+
+    const itemsWithIds = ITEMS.map((item, i) => ({
+      id: genId() + i.toString(36),
+      category: item.cat,
+      name: item.name,
+      price: item.price,
+      offerPrice: 0,
+      description: item.desc || "",
+      imageUrl: item.img || "",
+      isPopular: false,
+      isOffer: false,
+      prepTime: 0,
+      createdAt: Date.now()
+    }));
+
+    setProgress(50);
+    setStatus("☁️ رفع الأصناف...");
+    await setDoc(doc(db, "menu", "all"), { items: itemsWithIds });
+
+    setProgress(80);
+    setStatus("⚙️ رفع الإعدادات...");
+    await setDoc(doc(db, "settings", "info"), SETTINGS);
+
+    setProgress(100);
+    setStatus("✅ تم الترحيل بنجاح!", "success");
+
+    $("resultBox").classList.add("show");
+    $("resultText").innerHTML = `
+      <strong>تم رفع:</strong><br>
+      • ${itemsWithIds.length} صنف<br>
+      • 10 أقسام<br>
+      • الإعدادات الكاملة<br>
+      • 3 ثيمات جاهزة<br><br>
+      <strong>الخطوة التالية:</strong> احذفي هذا الملف.
+    `;
+    $("dangerZone").style.display = "block";
+    btn.textContent = "✅ تم الترحيل";
+  } catch (err) {
+    console.error(err);
+    setStatus("❌ فشل: " + (err.message || "خطأ"), "error");
+    setProgress(0);
+    btn.disabled = false;
+    btn.textContent = "🚀 رحّل البيانات الآن";
+  }
+};
+
+$("clearBtn").onclick = async () => {
+  if (!confirm("⚠️ حذف كل البيانات نهائياً؟")) return;
+  if (!confirm("تأكيد أخير!")) return;
+  const btn = $("clearBtn");
+  btn.disabled = true;
+  btn.textContent = "⏳ جاري الحذف...";
+  try {
+    await deleteDoc(doc(db, "menu", "all"));
+    await deleteDoc(doc(db, "settings", "info"));
+    setStatus("✅ تم حذف كل البيانات", "success");
+    $("resultBox").classList.remove("show");
+    btn.textContent = "✓ تم الحذف";
+  } catch (err) {
+    setStatus("❌ فشل: " + err.message, "error");
+    btn.disabled = false;
+    btn.textContent = "🗑️ حذف جميع البيانات";
+  }
+};
+</script>
+</body>
+</html>
