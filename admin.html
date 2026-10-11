@@ -9,17 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0A2E36;--bg-2:#0E3A44;--bg-3:#134850;
-  --primary:#FF9800;--primary-2:#FFB74D;--primary-3:#E68A00;
-  --accent:#4DD0E1;--hot:#E91E63;
-  --text:#F5F0E1;--dim:#A8C5CC;--soft:#6B8A92;
-  --card-1:#0E3A44;--card-2:#134850;
-  --border:rgba(255,152,0,.2);
-  --border-strong:rgba(255,152,0,.4);
-  --shadow:0 10px 30px rgba(0,0,0,.4);
-  --shadow-lg:0 24px 60px rgba(0,0,0,.6);
-}
+:root{--bg:#0A2E36;--bg-2:#0E3A44;--bg-3:#134850;--primary:#FF9800;--primary-2:#FFB74D;--primary-3:#E68A00;--accent:#4DD0E1;--hot:#E91E63;--text:#F5F0E1;--dim:#A8C5CC;--soft:#6B8A92;--card-1:#0E3A44;--card-2:#134850;--border:rgba(255,152,0,.2);--border-strong:rgba(255,152,0,.4);--shadow:0 10px 30px rgba(0,0,0,.4);--shadow-lg:0 24px 60px rgba(0,0,0,.6)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Tajawal',sans-serif;background:linear-gradient(160deg,var(--bg),var(--bg-2));color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;min-height:100vh}
@@ -31,12 +21,13 @@ img{display:block;max-width:100%}
 ::-webkit-scrollbar-track{background:var(--bg-2)}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--primary-3),var(--primary));border-radius:4px}
 
-/* ===== Login ===== */
+/* Login */
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
 .login-card{background:linear-gradient(160deg,var(--card-1),var(--bg));border-radius:28px;padding:40px 30px;max-width:420px;width:100%;box-shadow:var(--shadow-lg),0 0 0 1px var(--border);position:relative;overflow:hidden}
 .login-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--primary),var(--hot),var(--primary),var(--accent))}
-.login-logo{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:flex;align-items:center;justify-content:center;color:#fff;margin:0 auto 20px;box-shadow:0 8px 30px rgba(255,152,0,.35);position:relative}
-.login-logo svg{width:42px;height:42px}
+.login-logo{width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 20px;box-shadow:0 8px 30px rgba(255,152,0,.35);position:relative;background:var(--bg-3)}
+.login-logo img{width:100%;height:100%;object-fit:contain}
+.login-logo svg{width:50px;height:50px;color:var(--primary);margin:25px auto}
 .login-ornament{text-align:center;color:var(--primary);opacity:.6;letter-spacing:10px;font-size:12px;margin-bottom:8px}
 .login-title{text-align:center;font-family:'Amiri',serif;font-size:28px;font-weight:700;color:var(--primary);margin-bottom:6px}
 .login-sub{text-align:center;font-size:13px;color:var(--dim);margin-bottom:28px}
@@ -59,17 +50,16 @@ img{display:block;max-width:100%}
 .login-btn:disabled{opacity:.6;pointer-events:none}
 .login-back{text-align:center;margin-top:18px;font-size:12.5px}
 .login-back a{color:var(--primary);text-decoration:none;font-weight:700;opacity:.8}
-.login-back a:hover{opacity:1}
 
-/* ===== App ===== */
+/* App */
 .admin-app{display:none;min-height:100vh;flex-direction:column}
 .admin-app.show{display:flex}
-
 .admin-header{background:var(--card-1);padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);border-bottom:1px solid var(--border)}
 .admin-header-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .admin-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
-.admin-logo{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-2));display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 1px var(--border-strong);flex-shrink:0}
-.admin-logo svg{width:24px;height:24px}
+.admin-logo{width:50px;height:50px;border-radius:50%;overflow:hidden;background:var(--bg-3);box-shadow:0 0 0 1px var(--border-strong);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.admin-logo img{width:100%;height:100%;object-fit:contain}
+.admin-logo svg{width:26px;height:26px;color:var(--primary)}
 .admin-brand-name{font-family:'Amiri',serif;font-size:18px;font-weight:700;color:var(--primary);line-height:1.1}
 .admin-brand-sub{font-size:11px;color:var(--dim);letter-spacing:1px;margin-top:2px}
 .admin-actions{display:flex;gap:8px}
@@ -77,13 +67,13 @@ img{display:block;max-width:100%}
 .header-btn:hover{background:rgba(255,152,0,.2)}
 .header-btn.logout{background:rgba(233,30,99,.2);color:#E85D5D;border-color:rgba(232,93,93,.35)}
 
-.admin-tabs{background:var(--card-1);border-bottom:1px solid var(--border);position:sticky;top:75px;z-index:90}
+.admin-tabs{background:var(--card-1);border-bottom:1px solid var(--border);position:sticky;top:78px;z-index:90}
 .admin-tabs-inner{max-width:1300px;margin:0 auto;display:flex;gap:4px;padding:0 12px;overflow-x:auto;scrollbar-width:none}
 .admin-tabs-inner::-webkit-scrollbar{display:none}
-.tab-btn{padding:16px 22px;font-size:14px;font-weight:700;color:var(--dim);border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.tab-btn{padding:16px 22px;font-size:14px;font-weight:700;color:var(--dim);border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;display:flex;align-items:center;gap:8px}
 .tab-btn.active{color:var(--primary);border-bottom-color:var(--primary)}
 .tab-btn:hover:not(.active){color:var(--primary-2);background:rgba(255,152,0,.05)}
-.tab-icon{font-size:16px;line-height:1}
+.tab-icon{font-size:16px}
 
 .admin-main{flex:1;max-width:1300px;width:100%;margin:0 auto;padding:24px 16px 100px}
 .panel{display:none}
@@ -98,7 +88,7 @@ img{display:block;max-width:100%}
 .card-box{background:var(--card-1);border-radius:20px;padding:24px 22px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:22px;position:relative;overflow:hidden}
 .card-box::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent)}
 .card-box-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--primary);margin-bottom:20px;display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px dashed var(--border);flex-wrap:wrap}
-.card-box-title-icon{font-size:18px;line-height:1}
+.card-box-title-icon{font-size:18px}
 .card-box-title .badge{margin-right:auto;background:rgba(255,152,0,.15);color:var(--primary);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;font-family:'Tajawal',sans-serif}
 
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -119,7 +109,6 @@ img{display:block;max-width:100%}
 .toggle-switch input:checked + .toggle-slider{background:linear-gradient(135deg,var(--primary),var(--primary-2));border-color:transparent}
 .toggle-switch input:checked + .toggle-slider::before{transform:translateX(-22px);background:#fff}
 
-/* Layout / Theme selectors */
 .layout-selector, .theme-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
 @media(max-width:700px){.layout-selector, .theme-selector{grid-template-columns:1fr}}
 .layout-option, .theme-option{background:var(--bg-2);border:2px solid var(--border);border-radius:16px;padding:18px 14px;cursor:pointer;transition:all .3s;text-align:center;position:relative}
@@ -134,18 +123,11 @@ img{display:block;max-width:100%}
 
 .theme-preview{width:100%;height:60px;border-radius:10px;margin-bottom:10px;overflow:hidden;display:flex}
 .theme-preview > div{flex:1}
-.theme-luxury-1{background:#0A2E36}
-.theme-luxury-2{background:#FF9800}
-.theme-luxury-3{background:#4DD0E1}
-.theme-clean-1{background:#FFFFFF}
-.theme-clean-2{background:#00BCD4}
-.theme-clean-3{background:#FF9800}
-.theme-summer-1{background:#FFF8E7}
-.theme-summer-2{background:#F57C00}
-.theme-summer-3{background:#4DD0E1}
+.theme-luxury-1{background:#0A2E36}.theme-luxury-2{background:#FF9800}.theme-luxury-3{background:#4DD0E1}
+.theme-clean-1{background:#FFFFFF}.theme-clean-2{background:#00BCD4}.theme-clean-3{background:#FF9800}
+.theme-summer-1{background:#FFF8E7}.theme-summer-2{background:#F57C00}.theme-summer-3{background:#4DD0E1}
 
-/* Buttons */
-.btn{padding:14px 24px;border-radius:50px;font-size:14.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:all .3s;box-shadow:0 6px 20px rgba(0,0,0,.3);letter-spacing:.3px}
+.btn{padding:14px 24px;border-radius:50px;font-size:14.5px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:9px;transition:all .3s;box-shadow:0 6px 20px rgba(0,0,0,.3)}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:scale(.97)}
 .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff;box-shadow:0 10px 30px rgba(255,152,0,.35)}
@@ -157,11 +139,10 @@ img{display:block;max-width:100%}
 .btn:disabled{opacity:.55;pointer-events:none}
 .btn-sm{padding:10px 18px;font-size:13px}
 
-/* Image upload */
 .image-upload{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
 .image-preview{width:140px;height:140px;border-radius:16px;background:var(--bg-2);border:2px dashed var(--border-strong);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;position:relative;transition:all .3s}
 .image-preview:hover{border-color:var(--primary);background:rgba(255,152,0,.05)}
-.image-preview img{width:100%;height:100%;object-fit:cover}
+.image-preview img{width:100%;height:100%;object-fit:contain}
 .image-preview-icon{font-size:38px;color:var(--primary);opacity:.5}
 .image-upload-info{flex:1;min-width:220px}
 .file-input-wrap{position:relative;display:inline-block;width:100%}
@@ -172,16 +153,14 @@ img{display:block;max-width:100%}
 .upload-progress.show{display:block}
 .upload-progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--primary-3),var(--primary),var(--primary-2));transition:width .3s;border-radius:3px}
 
-/* Stats */
 .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:24px}
 .stat-card{background:var(--card-1);border-radius:16px;padding:20px 16px;border:1px solid var(--border);text-align:center;position:relative;overflow:hidden;transition:all .3s}
 .stat-card:hover{border-color:var(--border-strong);transform:translateY(-2px)}
 .stat-card::before{content:"";position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--primary),transparent);opacity:.6}
-.stat-icon{font-size:24px;margin-bottom:8px;line-height:1}
+.stat-icon{font-size:24px;margin-bottom:8px}
 .stat-val{font-family:'Amiri',serif;font-size:32px;font-weight:700;color:var(--primary);line-height:1;margin-bottom:6px}
-.stat-label{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.4px}
+.stat-label{font-size:12px;color:var(--dim);font-weight:600}
 
-/* Items list */
 .search-items-wrap{position:relative;margin-bottom:18px}
 .search-items-input{width:100%;padding:14px 50px 14px 20px;border-radius:50px;border:1px solid var(--border);background:var(--bg-2);font-size:14px;color:var(--text);outline:none;transition:all .3s}
 .search-items-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,152,0,.15)}
@@ -210,26 +189,23 @@ img{display:block;max-width:100%}
 .icon-btn.edit:hover{background:var(--primary);color:#fff}
 .icon-btn.del{background:rgba(233,30,99,.2);color:#E85D5D;border-color:rgba(232,93,93,.3)}
 .icon-btn.del:hover{background:#D32F2F;color:#fff}
+.icon-btn:disabled{opacity:.3;pointer-events:none}
 
 .empty-box{text-align:center;padding:50px 20px;color:var(--dim)}
-.empty-box-icon{font-size:60px;opacity:.35;margin-bottom:14px;line-height:1}
+.empty-box-icon{font-size:60px;opacity:.35;margin-bottom:14px}
 .empty-box-title{font-family:'Amiri',serif;font-size:20px;font-weight:700;color:var(--primary);margin-bottom:6px}
 .empty-box-text{font-size:13px}
 
-/* Delivery */
 .delivery-row{display:flex;gap:10px;align-items:center;margin-bottom:12px;background:var(--bg-2);padding:12px;border-radius:14px;border:1px solid var(--border);flex-wrap:wrap}
-.delivery-row .icon-input{width:60px;padding:10px;border-radius:10px;border:1px solid var(--border-strong);background:var(--bg);font-size:20px;text-align:center;color:var(--text);outline:none}
 .delivery-row .name-input,.delivery-row .url-input{flex:1;min-width:120px;padding:11px 14px;border-radius:10px;border:1px solid var(--border-strong);background:var(--bg);font-size:13.5px;color:var(--text);outline:none}
 .delivery-row input:focus{border-color:var(--primary);box-shadow:0 0 0 2px rgba(255,152,0,.1)}
 
-/* Toast */
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--card-1);color:var(--text);padding:14px 26px;border-radius:50px;font-size:13.5px;font-weight:700;box-shadow:var(--shadow-lg);z-index:9999;opacity:0;transition:all .4s cubic-bezier(.4,0,.2,1);pointer-events:none;display:flex;align-items:center;gap:10px;border:1px solid var(--border-strong);max-width:90vw}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.success{background:linear-gradient(135deg,#25D366,#128C7E);border-color:rgba(37,211,102,.6);color:#fff}
 .toast.error{background:linear-gradient(135deg,#7A2828,#D32F2F);border-color:rgba(232,93,93,.6);color:#fff}
 
 .loading-msg{text-align:center;padding:40px;color:var(--dim);font-weight:600;font-size:14px}
-.divider{height:1px;background:var(--border);margin:20px 0}
 
 .info-banner{background:rgba(255,152,0,.06);border:1px solid var(--border-strong);border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:13px;color:var(--text);line-height:1.6;display:flex;gap:12px;align-items:flex-start}
 .info-banner-icon{font-size:20px;flex-shrink:0}
@@ -238,18 +214,11 @@ img{display:block;max-width:100%}
 </head>
 <body>
 
-<!-- ===== LOGIN ===== -->
+<!-- LOGIN -->
 <div class="login-wrap" id="loginWrap">
   <div class="login-card">
-    <div class="login-logo">
-      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 8 L20 22 L30 8"/>
-        <path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/>
-        <path d="M20 22 L20 34"/>
-        <path d="M14 34 L26 34"/>
-        <circle cx="16" cy="12" r="1.5" fill="currentColor"/>
-        <circle cx="24" cy="14" r="1.2" fill="currentColor"/>
-      </svg>
+    <div class="login-logo" id="loginLogoBox">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 L20 22 L30 8"/><path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/><path d="M20 22 L20 34"/><path d="M14 34 L26 34"/></svg>
     </div>
     <div class="login-ornament">✦ ✦ ✦</div>
     <h1 class="login-title">لوحة التحكم</h1>
@@ -258,7 +227,7 @@ img{display:block;max-width:100%}
     <div class="form-group">
       <label class="form-label">البريد الإلكتروني</label>
       <input type="email" class="form-input" id="loginEmail" value="admin@abosalah.com" disabled>
-      <div class="form-note">✉️ هذا الحقل ثابت للأدمن</div>
+      <div class="form-note">✉️ هذا الحقل ثابت</div>
     </div>
     <div class="form-group">
       <label class="form-label">كلمة المرور <span class="req">*</span></label>
@@ -269,18 +238,13 @@ img{display:block;max-width:100%}
   </div>
 </div>
 
-<!-- ===== APP ===== -->
+<!-- APP -->
 <div class="admin-app" id="adminApp">
   <header class="admin-header">
     <div class="admin-header-inner">
       <div class="admin-brand">
-        <div class="admin-logo">
-          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 8 L20 22 L30 8"/>
-            <path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/>
-            <path d="M20 22 L20 34"/>
-            <path d="M14 34 L26 34"/>
-          </svg>
+        <div class="admin-logo" id="adminLogoBox">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8 L20 22 L30 8"/><path d="M10 8 Q10 6 12 6 L28 6 Q30 6 30 8"/><path d="M20 22 L20 34"/><path d="M14 34 L26 34"/></svg>
         </div>
         <div>
           <div class="admin-brand-name">لوحة التحكم</div>
@@ -311,20 +275,18 @@ img{display:block;max-width:100%}
         <h1 class="panel-title"><span class="panel-title-icon">📊</span> نظرة عامة</h1>
         <p class="panel-sub">ملخص سريع لحالة المحل والقائمة</p>
       </div>
-
       <div class="stats-row">
         <div class="stat-card"><div class="stat-icon">🍹</div><div class="stat-val" id="statTotal">0</div><div class="stat-label">إجمالي الأصناف</div></div>
         <div class="stat-card"><div class="stat-icon">📂</div><div class="stat-val" id="statCats">0</div><div class="stat-label">الأقسام</div></div>
         <div class="stat-card"><div class="stat-icon">⭐</div><div class="stat-val" id="statPopular">0</div><div class="stat-label">الأكثر طلباً</div></div>
         <div class="stat-card"><div class="stat-icon">🔥</div><div class="stat-val" id="statOffers">0</div><div class="stat-label">عروض اليوم</div></div>
       </div>
-
       <div class="card-box">
         <div class="card-box-title"><span class="card-box-title-icon">💡</span> نصائح سريعة</div>
-        <div class="info-banner"><div class="info-banner-icon">⭐</div><div>حددي <strong>5-7 أصناف "الأكثر طلباً"</strong> عشان تظهر بقسم مميز بأول الموقع — بيختصر على الزبون التفكير.</div></div>
-        <div class="info-banner"><div class="info-banner-icon">🔥</div><div>حطي <strong>2-3 أصناف "عروض اليوم"</strong> بسعر مخفض لجذب الانتباه وزيادة الطلبات.</div></div>
-        <div class="info-banner"><div class="info-banner-icon">🕐</div><div>أضيفي <strong>وقت التحضير</strong> لكل صنف — يطمن الزبون ويرفع نسبة الطلب.</div></div>
+        <div class="info-banner"><div class="info-banner-icon">⭐</div><div>حددي <strong>5-7 أصناف "الأكثر طلباً"</strong> عشان تظهر بقسم مميز بأول الموقع.</div></div>
+        <div class="info-banner"><div class="info-banner-icon">🔥</div><div>حطي <strong>2-3 أصناف "عروض اليوم"</strong> بسعر مخفض لجذب الانتباه.</div></div>
         <div class="info-banner"><div class="info-banner-icon">🎨</div><div>جربي <strong>3 ثيمات ألوان</strong> من تبويب "التصميم" — كل ثيم يعطي إحساس مختلف.</div></div>
+        <div class="info-banner"><div class="info-banner-icon">🔄</div><div>رتبي <strong>الأقسام</strong> من تبويب "التصميم" — اسحبي القسم اللي بدك ياه بأول.</div></div>
       </div>
     </section>
 
@@ -349,7 +311,6 @@ img{display:block;max-width:100%}
             <input type="text" class="form-input" id="itemName" placeholder="مثال: عصير مانجو">
           </div>
         </div>
-
         <div class="form-row-3">
           <div class="form-group">
             <label class="form-label">السعر <span class="req">*</span></label>
@@ -364,32 +325,17 @@ img{display:block;max-width:100%}
             <input type="number" class="form-input" id="itemPrepTime" placeholder="5" min="0">
           </div>
         </div>
-
         <div class="form-group">
           <label class="form-label">الوصف (اختياري)</label>
           <textarea class="form-textarea" id="itemDesc" placeholder="وصف قصير..."></textarea>
         </div>
-
         <div class="form-group">
           <label class="form-label">تصنيفات خاصة</label>
           <div class="toggle-group">
-            <div class="toggle-row">
-              <div class="toggle-info">
-                <div class="toggle-title">⭐ الأكثر طلباً</div>
-                <div class="toggle-desc">يظهر في قسم مميز بأول الموقع</div>
-              </div>
-              <label class="toggle-switch"><input type="checkbox" id="itemIsPopular"><span class="toggle-slider"></span></label>
-            </div>
-            <div class="toggle-row">
-              <div class="toggle-info">
-                <div class="toggle-title">🔥 عرض اليوم</div>
-                <div class="toggle-desc">يحتاج سعر عرض أقل من السعر الأساسي</div>
-              </div>
-              <label class="toggle-switch"><input type="checkbox" id="itemIsOffer"><span class="toggle-slider"></span></label>
-            </div>
+            <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">⭐ الأكثر طلباً</div><div class="toggle-desc">يظهر في قسم مميز بأول الموقع</div></div><label class="toggle-switch"><input type="checkbox" id="itemIsPopular"><span class="toggle-slider"></span></label></div>
+            <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">🔥 عرض اليوم</div><div class="toggle-desc">يحتاج سعر عرض أقل من السعر الأساسي</div></div><label class="toggle-switch"><input type="checkbox" id="itemIsOffer"><span class="toggle-slider"></span></label></div>
           </div>
         </div>
-
         <div class="form-group">
           <label class="form-label">صورة الصنف</label>
           <div class="image-upload">
@@ -405,7 +351,6 @@ img{display:block;max-width:100%}
             </div>
           </div>
         </div>
-
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
           <button class="btn btn-primary" id="saveItemBtn">💾 حفظ الصنف</button>
           <button class="btn btn-ghost" id="cancelEditBtn" style="display:none">✕ إلغاء التعديل</button>
@@ -413,11 +358,7 @@ img{display:block;max-width:100%}
       </div>
 
       <div class="card-box">
-        <div class="card-box-title">
-          <span class="card-box-title-icon">📋</span>
-          <span>الأصناف الحالية</span>
-          <span class="badge" id="itemsCountBadge">0</span>
-        </div>
+        <div class="card-box-title"><span class="card-box-title-icon">📋</span><span>الأصناف الحالية</span><span class="badge" id="itemsCountBadge">0</span></div>
         <div class="search-items-wrap">
           <span class="search-items-icon">🔍</span>
           <input type="text" class="search-items-input" id="searchItems" placeholder="ابحث في الأصناف...">
@@ -488,28 +429,20 @@ img{display:block;max-width:100%}
       </div>
 
       <div class="card-box">
+        <div class="card-box-title"><span class="card-box-title-icon">🔄</span> ترتيب الأقسام</div>
+        <div class="form-note" style="margin-bottom:16px">📌 رتبي الأقسام بالأسهم. الترتيب يظهر في الموقع للزبون.</div>
+        <div id="categoryOrderList"></div>
+        <button class="btn btn-ghost btn-sm" id="resetCategoryOrderBtn" style="margin-top:10px">🔄 إعادة الترتيب الافتراضي</button>
+      </div>
+
+      <div class="card-box">
         <div class="card-box-title"><span class="card-box-title-icon">✨</span> الميزات الظاهرة للزبون</div>
         <div class="toggle-group">
-          <div class="toggle-row">
-            <div class="toggle-info"><div class="toggle-title">⭐ قسم "الأكثر طلباً"</div><div class="toggle-desc">إظهار الأصناف المميزة بقسم منفصل</div></div>
-            <label class="toggle-switch"><input type="checkbox" id="setShowPopular"><span class="toggle-slider"></span></label>
-          </div>
-          <div class="toggle-row">
-            <div class="toggle-info"><div class="toggle-title">🔥 قسم "عروض اليوم"</div><div class="toggle-desc">إظهار الأصناف بسعر مخفض</div></div>
-            <label class="toggle-switch"><input type="checkbox" id="setShowOffers"><span class="toggle-slider"></span></label>
-          </div>
-          <div class="toggle-row">
-            <div class="toggle-info"><div class="toggle-title">🕐 وقت التحضير</div><div class="toggle-desc">إظهار وقت التحضير على البطاقات</div></div>
-            <label class="toggle-switch"><input type="checkbox" id="setShowPrepTime"><span class="toggle-slider"></span></label>
-          </div>
-          <div class="toggle-row">
-            <div class="toggle-info"><div class="toggle-title">📞 زر "اتصل مباشرة"</div><div class="toggle-desc">إظهار زر الاتصال في الواجهة</div></div>
-            <label class="toggle-switch"><input type="checkbox" id="setShowCallButton"><span class="toggle-slider"></span></label>
-          </div>
-          <div class="toggle-row">
-            <div class="toggle-info"><div class="toggle-title">✅ رسالة تأكيد الطلب</div><div class="toggle-desc">إظهار "تم استلام طلبك" قبل واتساب</div></div>
-            <label class="toggle-switch"><input type="checkbox" id="setConfirmOrder"><span class="toggle-slider"></span></label>
-          </div>
+          <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">⭐ قسم "الأكثر طلباً"</div><div class="toggle-desc">إظهار الأصناف المميزة بقسم منفصل</div></div><label class="toggle-switch"><input type="checkbox" id="setShowPopular"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">🔥 قسم "عروض اليوم"</div><div class="toggle-desc">إظهار الأصناف بسعر مخفض</div></div><label class="toggle-switch"><input type="checkbox" id="setShowOffers"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">🕐 وقت التحضير</div><div class="toggle-desc">إظهار وقت التحضير على البطاقات</div></div><label class="toggle-switch"><input type="checkbox" id="setShowPrepTime"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">📞 زر "اتصل مباشرة"</div><div class="toggle-desc">إظهار زر الاتصال في الواجهة</div></div><label class="toggle-switch"><input type="checkbox" id="setShowCallButton"><span class="toggle-slider"></span></label></div>
+          <div class="toggle-row"><div class="toggle-info"><div class="toggle-title">✅ رسالة تأكيد الطلب</div><div class="toggle-desc">إظهار "تم استلام طلبك" قبل واتساب</div></div><label class="toggle-switch"><input type="checkbox" id="setConfirmOrder"><span class="toggle-slider"></span></label></div>
         </div>
       </div>
 
@@ -520,7 +453,24 @@ img{display:block;max-width:100%}
     <section class="panel" id="panel-settings">
       <div class="panel-header">
         <h1 class="panel-title"><span class="panel-title-icon">⚙️</span> الإعدادات</h1>
-        <p class="panel-sub">معلومات المحل، الأرقام، والعنوان</p>
+        <p class="panel-sub">معلومات المحل، الشعار، الأرقام، والعنوان</p>
+      </div>
+
+      <div class="card-box">
+        <div class="card-box-title"><span class="card-box-title-icon">🎨</span> شعار المحل</div>
+        <div class="image-upload">
+          <div class="image-preview" id="logoPreview" style="width:120px;height:120px;border-radius:50%"><div class="image-preview-icon">🎨</div></div>
+          <div class="image-upload-info">
+            <div class="file-input-wrap">
+              <input type="file" class="file-input" id="logoImage" accept="image/*">
+              <div class="file-btn">📁 اختر شعار المحل</div>
+            </div>
+            <div class="form-note">📌 يُضغط تلقائياً ويُرفع. اتركيه فاضي لاستخدام الشعار الافتراضي.</div>
+            <div class="upload-progress" id="logoProgress"><div class="upload-progress-bar" id="logoProgressBar"></div></div>
+            <input type="hidden" id="setLogoUrl">
+            <button class="btn btn-ghost btn-sm" id="removeLogoBtn" style="margin-top:8px;display:none">🗑️ إزالة الشعار</button>
+          </div>
+        </div>
       </div>
 
       <div class="card-box">
@@ -647,6 +597,7 @@ const auth = getAuth(app);
 const CLOUD_NAME = "vfdkxutu";
 const UPLOAD_PRESET = "abosalah";
 const CLOUDINARY_FOLDER = "abosalah/menu";
+const LOGO_DEFAULT = "https://res.cloudinary.com/vfdkxutu/image/upload/f_png/abo_salah_logo.ai";
 const ADMIN_EMAIL = "admin@abosalah.com";
 
 const DEFAULT_SETTINGS = {
@@ -665,13 +616,15 @@ const DEFAULT_SETTINGS = {
   deliveryNote: "خيارات التوصيل",
   deliveryShow: true,
   deliveryOptions: [
-    { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵" },
-    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱" },
-    { name: "موفو", url: "https://movo.sy/", icon: "📞" }
+    { name: "توصيل خاص", url: "https://wa.me/963982699556", icon: "🛵", logoUrl: "" },
+    { name: "بي اوردر", url: "https://www.beeorder.co/", icon: "📱", logoUrl: "" },
+    { name: "موفو", url: "https://movo.sy/", icon: "📞", logoUrl: "" }
   ],
   heroImage: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=1600&q=80",
+  logoUrl: LOGO_DEFAULT,
   theme: "luxury",
   menuLayout: "grid",
+  categoryOrder: [],
   showPopular: true,
   showOffers: true,
   showPrepTime: true,
@@ -684,6 +637,7 @@ let editingId = null;
 let currentImageUrl = "";
 let settings = { ...DEFAULT_SETTINGS };
 let deliveryOptions = [];
+let categoryOrder = [];
 let listenersActive = false;
 let unsubMenu = null;
 let unsubSettings = null;
@@ -700,22 +654,15 @@ function showToast(msg, type = "") {
   t._tid = setTimeout(() => t.className = "toast " + type, 3000);
 }
 
-/* ===== LOGIN ===== */
+/* LOGIN */
 $("loginBtn").onclick = async () => {
   const pass = $("loginPassword").value;
   const errBox = $("loginErr");
   errBox.classList.remove("show");
-
-  if (!pass) {
-    errBox.textContent = "⚠️ الرجاء إدخال كلمة المرور";
-    errBox.classList.add("show");
-    return;
-  }
-
+  if (!pass) { errBox.textContent = "⚠️ الرجاء إدخال كلمة المرور"; errBox.classList.add("show"); return; }
   const btn = $("loginBtn");
   btn.disabled = true;
   btn.textContent = "⏳ جاري التحقق...";
-
   try {
     await signInWithEmailAndPassword(auth, ADMIN_EMAIL, pass);
   } catch (err) {
@@ -731,75 +678,63 @@ $("loginBtn").onclick = async () => {
     btn.textContent = "✦ تسجيل الدخول";
   }
 };
-
 $("loginPassword").addEventListener("keydown", e => { if (e.key === "Enter") $("loginBtn").click(); });
-
-$("logoutBtn").onclick = async () => {
-  if (!confirm("هل أنت متأكد من تسجيل الخروج؟")) return;
-  await signOut(auth);
-};
+$("logoutBtn").onclick = async () => { if (!confirm("هل أنت متأكد من تسجيل الخروج؟")) return; await signOut(auth); };
 
 onAuthStateChanged(auth, user => {
-  const loginWrap = $("loginWrap");
-  const adminApp = $("adminApp");
-  const loginBtn = $("loginBtn");
-
   if (user && user.email === ADMIN_EMAIL) {
-    loginWrap.style.display = "none";
-    adminApp.classList.add("show");
+    $("loginWrap").style.display = "none";
+    $("adminApp").classList.add("show");
     $("loginPassword").value = "";
-    loginBtn.disabled = false;
-    loginBtn.textContent = "✦ تسجيل الدخول";
+    $("loginBtn").disabled = false;
+    $("loginBtn").textContent = "✦ تسجيل الدخول";
     startListeners();
   } else {
-    loginWrap.style.display = "flex";
-    adminApp.classList.remove("show");
-    loginBtn.disabled = false;
-    loginBtn.textContent = "✦ تسجيل الدخول";
+    $("loginWrap").style.display = "flex";
+    $("adminApp").classList.remove("show");
+    $("loginBtn").disabled = false;
+    $("loginBtn").textContent = "✦ تسجيل الدخول";
     stopListeners();
   }
 });
 
-/* ===== LISTENERS ===== */
+/* LISTENERS */
 function startListeners() {
   if (listenersActive) return;
   listenersActive = true;
-
   unsubMenu = onSnapshot(doc(db, "menu", "all"), snap => {
-    if (snap.exists()) {
-      const data = snap.data();
-      allItems = Array.isArray(data.items) ? data.items : [];
-    } else {
-      allItems = [];
-    }
-    renderItemsList();
-    renderStats();
-    renderCategoryDatalist();
-  }, err => {
-    console.error(err);
-    showToast("⚠️ خطأ في تحميل الأصناف", "error");
-  });
-
+    if (snap.exists()) { const data = snap.data(); allItems = Array.isArray(data.items) ? data.items : []; }
+    else allItems = [];
+    renderItemsList(); renderStats(); renderCategoryDatalist();
+  }, err => { console.error(err); showToast("⚠️ خطأ في تحميل الأصناف", "error"); });
   unsubSettings = onSnapshot(doc(db, "settings", "info"), snap => {
     if (snap.exists()) {
       settings = { ...DEFAULT_SETTINGS, ...snap.data() };
       deliveryOptions = Array.isArray(settings.deliveryOptions) ? [...settings.deliveryOptions] : [];
+      categoryOrder = Array.isArray(settings.categoryOrder) ? [...settings.categoryOrder] : [];
     } else {
       settings = { ...DEFAULT_SETTINGS };
       deliveryOptions = [...DEFAULT_SETTINGS.deliveryOptions];
+      categoryOrder = [];
     }
-    loadSettingsForm();
-    loadDesignForm();
+    loadSettingsForm(); loadDesignForm(); renderAdminLogo();
   }, err => console.error(err));
 }
-
 function stopListeners() {
   if (unsubMenu) { unsubMenu(); unsubMenu = null; }
   if (unsubSettings) { unsubSettings(); unsubSettings = null; }
   listenersActive = false;
 }
 
-/* ===== TABS ===== */
+function renderAdminLogo() {
+  const url = settings.logoUrl || LOGO_DEFAULT;
+  if (url) {
+    $("adminLogoBox").innerHTML = `<img src="${url}" alt="">`;
+    $("loginLogoBox").innerHTML = `<img src="${url}" alt="">`;
+  }
+}
+
+/* TABS */
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -810,7 +745,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
   };
 });
 
-/* ===== STATS ===== */
+/* STATS */
 function renderStats() {
   $("statTotal").textContent = allItems.length;
   const cats = new Set(allItems.map(i => i.category).filter(Boolean));
@@ -819,47 +754,98 @@ function renderStats() {
   $("statOffers").textContent = allItems.filter(i => i.isOffer).length;
 }
 
+/* CATEGORY ORDER */
 function renderCategoryDatalist() {
   const cats = [...new Set(allItems.map(i => i.category).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ar'));
   $("catList").innerHTML = cats.map(c => `<option value="${c}">`).join("");
+  renderCategoryOrderList();
 }
 
-/* ===== ITEMS LIST ===== */
+function getCategoriesInOrder() {
+  const cats = [...new Set(allItems.map(i => i.category).filter(Boolean))];
+  const inOrder = categoryOrder.filter(c => cats.includes(c));
+  const notInOrder = cats.filter(c => !categoryOrder.includes(c)).sort((a, b) => a.localeCompare(b, 'ar'));
+  return [...inOrder, ...notInOrder];
+}
+
+function renderCategoryOrderList() {
+  const box = $("categoryOrderList");
+  if (!box) return;
+  const cats = getCategoriesInOrder();
+  if (!cats.length) {
+    box.innerHTML = `<div class="empty-box" style="padding:16px"><div class="empty-box-text">لا توجد أقسام بعد. أضيفي أصناف أولاً.</div></div>`;
+    return;
+  }
+  box.innerHTML = cats.map((cat, i) => `
+    <div class="item-row" style="padding:10px 12px;margin-bottom:6px">
+      <span style="font-weight:700;color:var(--primary);min-width:30px">${i + 1}.</span>
+      <div class="item-row-info"><div class="item-row-name" style="font-size:15px">${cat}</div></div>
+      <div class="item-row-actions">
+        <button class="icon-btn edit" data-up="${i}" title="لأعلى" ${i === 0 ? 'disabled' : ''}>⬆️</button>
+        <button class="icon-btn edit" data-down="${i}" title="لأسفل" ${i === cats.length - 1 ? 'disabled' : ''}>⬇️</button>
+      </div>
+    </div>
+  `).join("");
+
+  box.querySelectorAll("[data-up]").forEach(b => b.onclick = async () => {
+    const i = +b.dataset.up;
+    if (i <= 0) return;
+    const all = getCategoriesInOrder();
+    categoryOrder = [...all];
+    [categoryOrder[i - 1], categoryOrder[i]] = [categoryOrder[i], categoryOrder[i - 1]];
+    renderCategoryOrderList();
+    await saveCategoryOrder();
+  });
+  box.querySelectorAll("[data-down]").forEach(b => b.onclick = async () => {
+    const i = +b.dataset.down;
+    const all = getCategoriesInOrder();
+    categoryOrder = [...all];
+    if (i >= all.length - 1) return;
+    [categoryOrder[i], categoryOrder[i + 1]] = [categoryOrder[i + 1], categoryOrder[i]];
+    renderCategoryOrderList();
+    await saveCategoryOrder();
+  });
+}
+
+async function saveCategoryOrder() {
+  try {
+    await setDoc(doc(db, "settings", "info"), { categoryOrder }, { merge: true });
+    showToast("✓ تم حفظ الترتيب", "success");
+  } catch (err) {
+    console.error(err);
+    showToast("❌ فشل الحفظ", "error");
+  }
+}
+
+$("resetCategoryOrderBtn").onclick = async () => {
+  if (!confirm("إعادة الترتيب الافتراضي (أبجدي)؟")) return;
+  categoryOrder = [];
+  await setDoc(doc(db, "settings", "info"), { categoryOrder: [] }, { merge: true });
+  renderCategoryOrderList();
+  showToast("✓ تم إعادة الترتيب", "success");
+};
+
+/* ITEMS LIST */
 function renderItemsList() {
   const q = ($("searchItems").value || "").trim().toLowerCase();
   let list = [...allItems];
   if (q) list = list.filter(i => (i.name || "").toLowerCase().includes(q) || (i.category || "").toLowerCase().includes(q));
   list.sort((a, b) => (a.category || '').localeCompare(b.category || '', 'ar'));
-
   $("itemsCountBadge").textContent = allItems.length;
-
   const box = $("itemsList");
   if (!list.length) {
-    box.innerHTML = `<div class="empty-box">
-      <div class="empty-box-icon">🍹</div>
-      <div class="empty-box-title">${q ? 'لا نتائج' : 'لا توجد أصناف بعد'}</div>
-      <div class="empty-box-text">${q ? 'جربي كلمة أخرى' : 'أضيفي أول صنف من النموذج أعلاه'}</div>
-    </div>`;
+    box.innerHTML = `<div class="empty-box"><div class="empty-box-icon">🍹</div><div class="empty-box-title">${q ? 'لا نتائج' : 'لا توجد أصناف بعد'}</div><div class="empty-box-text">${q ? 'جربي كلمة أخرى' : 'أضيفي أول صنف من النموذج أعلاه'}</div></div>`;
     return;
   }
-
   box.innerHTML = list.map(i => {
     const isOffer = i.isOffer && i.offerPrice && Number(i.offerPrice) < Number(i.price);
-    return `
-    <div class="item-row">
+    return `<div class="item-row">
       <img class="item-row-img" src="${i.imageUrl || 'https://placehold.co/200x200/FF9800/FFF?text=K'}" onerror="this.src='https://placehold.co/200x200/FF9800/FFF?text=K'" alt="">
       <div class="item-row-info">
-        <div class="item-row-name">
-          ${i.name || ''}
-          ${i.isPopular ? '<span class="item-row-tag popular">⭐ الأكثر طلباً</span>' : ''}
-          ${isOffer ? '<span class="item-row-tag offer">🔥 عرض</span>' : ''}
-        </div>
+        <div class="item-row-name">${i.name || ''}${i.isPopular ? '<span class="item-row-tag popular">⭐ الأكثر طلباً</span>' : ''}${isOffer ? '<span class="item-row-tag offer">🔥 عرض</span>' : ''}</div>
         <div class="item-row-meta">
           <span class="item-row-cat">${i.category || ''}</span>
-          <span class="item-row-price">
-            ${isOffer ? `<span class="item-row-price-old">${fmt(i.price)}</span>` : ''}
-            ${fmt(isOffer ? i.offerPrice : i.price)} ل.س
-          </span>
+          <span class="item-row-price">${isOffer ? `<span class="item-row-price-old">${fmt(i.price)}</span>` : ''}${fmt(isOffer ? i.offerPrice : i.price)} ل.س</span>
           ${i.prepTime ? `<span class="item-row-tag prep">🕐 ${i.prepTime} د</span>` : ''}
         </div>
       </div>
@@ -869,14 +855,12 @@ function renderItemsList() {
       </div>
     </div>`;
   }).join("");
-
   box.querySelectorAll("[data-edit]").forEach(b => b.onclick = () => startEdit(b.dataset.edit));
   box.querySelectorAll("[data-del]").forEach(b => b.onclick = () => deleteItem(b.dataset.del));
 }
-
 $("searchItems").addEventListener("input", renderItemsList);
 
-/* ===== IMAGE UPLOAD ===== */
+/* IMAGE UPLOAD */
 function compressImage(file, maxSize = 800, quality = 0.8) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -886,17 +870,12 @@ function compressImage(file, maxSize = 800, quality = 0.8) {
         let { width, height } = img;
         if (width > maxSize || height > maxSize) {
           const ratio = Math.min(maxSize / width, maxSize / height);
-          width = Math.round(width * ratio);
-          height = Math.round(height * ratio);
+          width = Math.round(width * ratio); height = Math.round(height * ratio);
         }
         const canvas = document.createElement("canvas");
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = width; canvas.height = height;
         canvas.getContext("2d").drawImage(img, 0, 0, width, height);
-        canvas.toBlob(blob => {
-          if (blob) resolve(blob);
-          else reject(new Error("فشل ضغط الصورة"));
-        }, "image/jpeg", quality);
+        canvas.toBlob(blob => { if (blob) resolve(blob); else reject(new Error("فشل ضغط الصورة")); }, "image/jpeg", quality);
       };
       img.onerror = () => reject(new Error("ملف غير صالح"));
       img.src = e.target.result;
@@ -913,53 +892,80 @@ async function uploadImage(blob) {
   fd.append("upload_preset", UPLOAD_PRESET);
   if (CLOUDINARY_FOLDER) fd.append("folder", CLOUDINARY_FOLDER);
   const res = await fetch(url, { method: "POST", body: fd });
-  if (!res.ok) {
-    const errText = await res.text();
-    console.error("Upload error:", errText);
-    throw new Error("فشل رفع الصورة");
-  }
+  if (!res.ok) { const t = await res.text(); console.error("Upload error:", t); throw new Error("فشل رفع الصورة"); }
   const data = await res.json();
   return data.secure_url;
 }
 
+/* ITEM IMAGE */
 $("itemImage").addEventListener("change", async e => {
   const file = e.target.files[0];
   if (!file) return;
   if (!file.type.startsWith("image/")) return showToast("⚠️ الرجاء اختيار صورة", "error");
   if (file.size > 10 * 1024 * 1024) return showToast("⚠️ الصورة كبيرة جداً", "error");
-
-  const prog = $("uploadProgress");
-  const bar = $("uploadProgressBar");
-  prog.classList.add("show");
-  bar.style.width = "15%";
-
+  const prog = $("uploadProgress"), bar = $("uploadProgressBar");
+  prog.classList.add("show"); bar.style.width = "15%";
   try {
     showToast("⏳ جاري ضغط الصورة...");
     bar.style.width = "35%";
     const blob = await compressImage(file);
-    const previewUrl = URL.createObjectURL(blob);
-    $("imgPreview").innerHTML = `<img src="${previewUrl}" alt="">`;
+    $("imgPreview").innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="">`;
     bar.style.width = "55%";
-
     showToast("☁️ جاري رفع الصورة...");
     const url = await uploadImage(blob);
     bar.style.width = "100%";
-
     currentImageUrl = url;
     $("itemImageUrl").value = url;
     $("imgPreview").innerHTML = `<img src="${url}" alt="">`;
     showToast("✓ تم رفع الصورة", "success");
     setTimeout(() => { prog.classList.remove("show"); bar.style.width = "0%"; }, 800);
   } catch (err) {
-    console.error(err);
-    showToast("❌ فشل رفع الصورة", "error");
-    prog.classList.remove("show");
-    bar.style.width = "0%";
+    console.error(err); showToast("❌ فشل رفع الصورة", "error");
+    prog.classList.remove("show"); bar.style.width = "0%";
   }
   e.target.value = "";
 });
 
-/* ===== SAVE ITEM ===== */
+/* LOGO IMAGE */
+$("logoImage").addEventListener("change", async e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith("image/")) return showToast("⚠️ الرجاء اختيار صورة", "error");
+  if (file.size > 5 * 1024 * 1024) return showToast("⚠️ الصورة كبيرة جداً", "error");
+  const prog = $("logoProgress"), bar = $("logoProgressBar");
+  prog.classList.add("show"); bar.style.width = "15%";
+  try {
+    showToast("⏳ جاري ضغط الشعار...");
+    bar.style.width = "35%";
+    const blob = await compressImage(file, 400, 0.9);
+    $("logoPreview").innerHTML = `<img src="${URL.createObjectURL(blob)}" alt="">`;
+    bar.style.width = "55%";
+    showToast("☁️ جاري الرفع...");
+    const url = await uploadImage(blob);
+    bar.style.width = "100%";
+    $("setLogoUrl").value = url;
+    $("logoPreview").innerHTML = `<img src="${url}" alt="">`;
+    $("removeLogoBtn").style.display = "inline-flex";
+    await setDoc(doc(db, "settings", "info"), { logoUrl: url }, { merge: true });
+    showToast("✓ تم رفع وحفظ الشعار", "success");
+    setTimeout(() => { prog.classList.remove("show"); bar.style.width = "0%"; }, 800);
+  } catch (err) {
+    console.error(err); showToast("❌ فشل الرفع", "error");
+    prog.classList.remove("show"); bar.style.width = "0%";
+  }
+  e.target.value = "";
+});
+
+$("removeLogoBtn").onclick = async () => {
+  if (!confirm("إزالة الشعار المخصص والعودة للافتراضي؟")) return;
+  $("setLogoUrl").value = "";
+  $("logoPreview").innerHTML = `<div class="image-preview-icon">🎨</div>`;
+  $("removeLogoBtn").style.display = "none";
+  await setDoc(doc(db, "settings", "info"), { logoUrl: "" }, { merge: true });
+  showToast("✓ تم إزالة الشعار", "success");
+};
+
+/* SAVE ITEM */
 $("saveItemBtn").onclick = async () => {
   const category = $("itemCategory").value.trim();
   const name = $("itemName").value.trim();
@@ -970,47 +976,30 @@ $("saveItemBtn").onclick = async () => {
   const isPopular = $("itemIsPopular").checked;
   const isOffer = $("itemIsOffer").checked;
   const imageUrl = $("itemImageUrl").value.trim() || currentImageUrl;
-
   if (!category) return showToast("⚠️ الرجاء إدخال القسم", "error");
   if (!name) return showToast("⚠️ الرجاء إدخال اسم الصنف", "error");
   if (priceRaw === "" || isNaN(Number(priceRaw)) || Number(priceRaw) < 0) return showToast("⚠️ سعر غير صالح", "error");
-
   if (isOffer) {
     if (offerPriceRaw === "" || isNaN(Number(offerPriceRaw)) || Number(offerPriceRaw) < 0) return showToast("⚠️ حددي سعر العرض", "error");
     if (Number(offerPriceRaw) >= Number(priceRaw)) return showToast("⚠️ سعر العرض لازم يكون أقل", "error");
   }
-
   const btn = $("saveItemBtn");
-  btn.disabled = true;
-  btn.textContent = "⏳ جاري الحفظ...";
-
+  btn.disabled = true; btn.textContent = "⏳ جاري الحفظ...";
   try {
     const price = Number(priceRaw);
     const offerPrice = offerPriceRaw ? Number(offerPriceRaw) : 0;
     const prepTime = prepTimeRaw ? Number(prepTimeRaw) : 0;
-
     const itemData = { category, name, price, description, imageUrl, isPopular, isOffer, offerPrice: isOffer ? offerPrice : 0, prepTime: prepTime > 0 ? prepTime : 0 };
-
     let newItems;
-    if (editingId) {
-      newItems = allItems.map(i => i.id === editingId ? { ...i, ...itemData } : i);
-    } else {
-      newItems = [...allItems, { id: genId(), ...itemData, createdAt: Date.now() }];
-    }
-
+    if (editingId) newItems = allItems.map(i => i.id === editingId ? { ...i, ...itemData } : i);
+    else newItems = [...allItems, { id: genId(), ...itemData, createdAt: Date.now() }];
     await setDoc(doc(db, "menu", "all"), { items: newItems });
     showToast(editingId ? "✓ تم تعديل الصنف" : "✓ تمت إضافة الصنف", "success");
     resetForm();
-  } catch (err) {
-    console.error(err);
-    showToast("❌ فشل الحفظ", "error");
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "💾 حفظ الصنف";
-  }
+  } catch (err) { console.error(err); showToast("❌ فشل الحفظ", "error"); }
+  finally { btn.disabled = false; btn.textContent = "💾 حفظ الصنف"; }
 };
 
-/* ===== EDIT / RESET ===== */
 function startEdit(id) {
   const item = allItems.find(i => i.id === id);
   if (!item) return;
@@ -1029,38 +1018,27 @@ function startEdit(id) {
   $("formTitle").textContent = "✏️ تعديل صنف";
   $("saveItemBtn").textContent = "💾 حفظ التعديلات";
   $("cancelEditBtn").style.display = "inline-flex";
-
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
   document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
   document.querySelector('.tab-btn[data-tab="items"]').classList.add("active");
   $("panel-items").classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 $("cancelEditBtn").onclick = resetForm;
 
 function resetForm() {
-  editingId = null;
-  currentImageUrl = "";
-  $("itemCategory").value = "";
-  $("itemName").value = "";
-  $("itemPrice").value = "";
-  $("itemOfferPrice").value = "";
-  $("itemPrepTime").value = "";
-  $("itemDesc").value = "";
-  $("itemIsPopular").checked = false;
-  $("itemIsOffer").checked = false;
-  $("itemImageUrl").value = "";
-  $("itemImage").value = "";
+  editingId = null; currentImageUrl = "";
+  $("itemCategory").value = ""; $("itemName").value = ""; $("itemPrice").value = "";
+  $("itemOfferPrice").value = ""; $("itemPrepTime").value = ""; $("itemDesc").value = "";
+  $("itemIsPopular").checked = false; $("itemIsOffer").checked = false;
+  $("itemImageUrl").value = ""; $("itemImage").value = "";
   $("imgPreview").innerHTML = `<div class="image-preview-icon">📷</div>`;
   $("formTitle").textContent = "إضافة صنف جديد";
   $("saveItemBtn").textContent = "💾 حفظ الصنف";
   $("cancelEditBtn").style.display = "none";
-  $("uploadProgress").classList.remove("show");
-  $("uploadProgressBar").style.width = "0%";
+  $("uploadProgress").classList.remove("show"); $("uploadProgressBar").style.width = "0%";
 }
 
-/* ===== DELETE ===== */
 async function deleteItem(id) {
   const item = allItems.find(i => i.id === id);
   if (!item) return;
@@ -1070,67 +1048,42 @@ async function deleteItem(id) {
     await setDoc(doc(db, "menu", "all"), { items: newItems });
     showToast("✓ تم حذف الصنف", "success");
     if (editingId === id) resetForm();
-  } catch (err) {
-    console.error(err);
-    showToast("❌ فشل الحذف", "error");
-  }
+  } catch (err) { console.error(err); showToast("❌ فشل الحذف", "error"); }
 }
 
-/* ===== DESIGN ===== */
+/* DESIGN */
 function loadDesignForm() {
   const theme = settings.theme || "luxury";
   document.querySelectorAll(".theme-option").forEach(opt => {
     const input = opt.querySelector('input[name="theme"]');
-    if (opt.dataset.theme === theme) {
-      opt.classList.add("active");
-      input.checked = true;
-    } else {
-      opt.classList.remove("active");
-      input.checked = false;
-    }
+    if (opt.dataset.theme === theme) { opt.classList.add("active"); input.checked = true; }
+    else { opt.classList.remove("active"); input.checked = false; }
   });
-
   const layout = settings.menuLayout || "grid";
   document.querySelectorAll(".layout-option").forEach(opt => {
     const input = opt.querySelector('input[name="menuLayout"]');
-    if (opt.dataset.layout === layout) {
-      opt.classList.add("active");
-      input.checked = true;
-    } else {
-      opt.classList.remove("active");
-      input.checked = false;
-    }
+    if (opt.dataset.layout === layout) { opt.classList.add("active"); input.checked = true; }
+    else { opt.classList.remove("active"); input.checked = false; }
   });
-
   $("setShowPopular").checked = settings.showPopular !== false;
   $("setShowOffers").checked = settings.showOffers !== false;
   $("setShowPrepTime").checked = settings.showPrepTime !== false;
   $("setShowCallButton").checked = settings.showCallButton !== false;
   $("setConfirmOrder").checked = settings.confirmOrder !== false;
+  categoryOrder = Array.isArray(settings.categoryOrder) ? [...settings.categoryOrder] : [];
+  renderCategoryOrderList();
 }
 
 document.querySelectorAll(".theme-option").forEach(opt => {
-  opt.onclick = e => {
-    e.preventDefault();
-    document.querySelectorAll(".theme-option").forEach(o => o.classList.remove("active"));
-    opt.classList.add("active");
-    opt.querySelector('input[name="theme"]').checked = true;
-  };
+  opt.onclick = e => { e.preventDefault(); document.querySelectorAll(".theme-option").forEach(o => o.classList.remove("active")); opt.classList.add("active"); opt.querySelector('input[name="theme"]').checked = true; };
 });
-
 document.querySelectorAll(".layout-option").forEach(opt => {
-  opt.onclick = e => {
-    e.preventDefault();
-    document.querySelectorAll(".layout-option").forEach(o => o.classList.remove("active"));
-    opt.classList.add("active");
-    opt.querySelector('input[name="menuLayout"]').checked = true;
-  };
+  opt.onclick = e => { e.preventDefault(); document.querySelectorAll(".layout-option").forEach(o => o.classList.remove("active")); opt.classList.add("active"); opt.querySelector('input[name="menuLayout"]').checked = true; };
 });
 
 $("saveDesignBtn").onclick = async () => {
   const btn = $("saveDesignBtn");
-  btn.disabled = true;
-  btn.textContent = "⏳ جاري الحفظ...";
+  btn.disabled = true; btn.textContent = "⏳ جاري الحفظ...";
   try {
     const themeInput = document.querySelector('input[name="theme"]:checked');
     const layoutInput = document.querySelector('input[name="menuLayout"]:checked');
@@ -1145,16 +1098,11 @@ $("saveDesignBtn").onclick = async () => {
     };
     await setDoc(doc(db, "settings", "info"), data, { merge: true });
     showToast("✓ تم حفظ إعدادات التصميم", "success");
-  } catch (err) {
-    console.error(err);
-    showToast("❌ فشل الحفظ", "error");
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "💾 حفظ إعدادات التصميم";
-  }
+  } catch (err) { console.error(err); showToast("❌ فشل الحفظ", "error"); }
+  finally { btn.disabled = false; btn.textContent = "💾 حفظ إعدادات التصميم"; }
 };
 
-/* ===== SETTINGS ===== */
+/* SETTINGS */
 function loadSettingsForm() {
   $("setName").value = settings.name || "";
   $("setSubtitle").value = settings.subtitle || "";
@@ -1171,7 +1119,14 @@ function loadSettingsForm() {
   $("setMapUrl").value = settings.mapUrl || "";
   $("setDeliveryNote").value = settings.deliveryNote || "";
   $("setDeliveryShow").checked = settings.deliveryShow !== false;
+  const logoUrl = settings.logoUrl || "";
+  $("setLogoUrl").value = logoUrl;
+  if (logoUrl) { $("logoPreview").innerHTML = `<img src="${logoUrl}" alt="">`; $("removeLogoBtn").style.display = "inline-flex"; }
+  else { $("logoPreview").innerHTML = `<div class="image-preview-icon">🎨</div>`; $("removeLogoBtn").style.display = "none"; }
+  deliveryOptions = Array.isArray(settings.deliveryOptions) ? [...settings.deliveryOptions] : [];
+  categoryOrder = Array.isArray(settings.categoryOrder) ? [...settings.categoryOrder] : [];
   renderDeliveryList();
+  renderCategoryOrderList();
 }
 
 function renderDeliveryList() {
@@ -1181,31 +1136,47 @@ function renderDeliveryList() {
     return;
   }
   box.innerHTML = deliveryOptions.map((o, idx) => `
-    <div class="delivery-row">
-      <input type="text" class="icon-input" value="${o.icon || '🛵'}" data-icon="${idx}" placeholder="🛵" maxlength="4">
-      <input type="text" class="name-input" value="${(o.name || '').replace(/"/g,'&quot;')}" data-name="${idx}" placeholder="اسم الخيار">
-      <input type="text" class="url-input" value="${(o.url || '').replace(/"/g,'&quot;')}" data-url="${idx}" placeholder="رابط">
-      <button class="icon-btn del" data-remove-del="${idx}" title="حذف">🗑️</button>
+    <div class="delivery-row" style="flex-direction:column;align-items:stretch;gap:10px">
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <div class="image-preview" style="width:50px;height:50px;border-radius:10px;flex-shrink:0" id="delivPreview${idx}">
+          ${o.logoUrl ? `<img src="${o.logoUrl}" alt="">` : `<span style="font-size:22px">${o.icon || '🛵'}</span>`}
+        </div>
+        <div class="file-input-wrap" style="flex:1;min-width:120px">
+          <input type="file" class="file-input" data-logo="${idx}" accept="image/*">
+          <div class="file-btn" style="padding:10px;font-size:12px">📷 شعار الخيار</div>
+        </div>
+        <input type="text" class="name-input" value="${(o.name || '').replace(/"/g,'&quot;')}" data-name="${idx}" placeholder="اسم الخيار" style="flex:1;min-width:100px">
+        <input type="text" class="url-input" value="${(o.url || '').replace(/"/g,'&quot;')}" data-url="${idx}" placeholder="الرابط" style="flex:1;min-width:100px">
+        <button class="icon-btn del" data-remove-del="${idx}" title="حذف">🗑️</button>
+      </div>
+      ${o.logoUrl ? `<button class="btn btn-ghost btn-sm" data-remove-logo="${idx}" style="align-self:flex-start;font-size:11px;padding:6px 12px">🗑️ إزالة الشعار</button>` : ''}
     </div>
   `).join("");
-  box.querySelectorAll("[data-icon]").forEach(inp => inp.oninput = e => { deliveryOptions[+inp.dataset.icon].icon = e.target.value; });
   box.querySelectorAll("[data-name]").forEach(inp => inp.oninput = e => { deliveryOptions[+inp.dataset.name].name = e.target.value; });
   box.querySelectorAll("[data-url]").forEach(inp => inp.oninput = e => { deliveryOptions[+inp.dataset.url].url = e.target.value; });
-  box.querySelectorAll("[data-remove-del]").forEach(b => b.onclick = () => {
-    deliveryOptions.splice(+b.dataset.removeDel, 1);
-    renderDeliveryList();
+  box.querySelectorAll("[data-remove-del]").forEach(b => b.onclick = () => { deliveryOptions.splice(+b.dataset.removeDel, 1); renderDeliveryList(); });
+  box.querySelectorAll("[data-remove-logo]").forEach(b => b.onclick = () => { deliveryOptions[+b.dataset.removeLogo].logoUrl = ""; renderDeliveryList(); });
+  box.querySelectorAll("[data-logo]").forEach(inp => inp.onchange = async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (!file.type.startsWith("image/")) return showToast("⚠️ الرجاء اختيار صورة", "error");
+    try {
+      showToast("☁️ جاري رفع الشعار...");
+      const blob = await compressImage(file, 200, 0.9);
+      const url = await uploadImage(blob);
+      deliveryOptions[+inp.dataset.logo].logoUrl = url;
+      renderDeliveryList();
+      showToast("✓ تم رفع الشعار", "success");
+    } catch (err) { console.error(err); showToast("❌ فشل الرفع", "error"); }
+    e.target.value = "";
   });
 }
 
-$("addDeliveryBtn").onclick = () => {
-  deliveryOptions.push({ name: "", url: "", icon: "🛵" });
-  renderDeliveryList();
-};
+$("addDeliveryBtn").onclick = () => { deliveryOptions.push({ name: "", url: "", icon: "🛵", logoUrl: "" }); renderDeliveryList(); };
 
 $("saveSettingsBtn").onclick = async () => {
   const btn = $("saveSettingsBtn");
-  btn.disabled = true;
-  btn.textContent = "⏳ جاري الحفظ...";
+  btn.disabled = true; btn.textContent = "⏳ جاري الحفظ...";
   try {
     const data = {
       name: $("setName").value.trim() || "أبو صلاح",
@@ -1213,6 +1184,7 @@ $("saveSettingsBtn").onclick = async () => {
       status: $("setStatus").value.trim() || "مفتوح الآن",
       statusType: $("setStatusType").value,
       heroImage: $("setHeroImage").value.trim(),
+      logoUrl: $("setLogoUrl").value.trim(),
       whatsapp: $("setWhatsapp").value.trim().replace(/\D/g, ''),
       whatsappDisplay: $("setWhatsappDisplay").value.trim(),
       phone: $("setPhone").value.trim().replace(/\D/g, ''),
@@ -1227,13 +1199,8 @@ $("saveSettingsBtn").onclick = async () => {
     };
     await setDoc(doc(db, "settings", "info"), data, { merge: true });
     showToast("✓ تم حفظ الإعدادات", "success");
-  } catch (err) {
-    console.error(err);
-    showToast("❌ فشل الحفظ", "error");
-  } finally {
-    btn.disabled = false;
-    btn.textContent = "💾 حفظ جميع الإعدادات";
-  }
+  } catch (err) { console.error(err); showToast("❌ فشل الحفظ", "error"); }
+  finally { btn.disabled = false; btn.textContent = "💾 حفظ جميع الإعدادات"; }
 };
 </script>
 </body>
